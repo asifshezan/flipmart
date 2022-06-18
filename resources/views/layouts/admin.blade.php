@@ -326,19 +326,21 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="grid"></i>
+                                    <i data-feather="users"></i>
                                     <span data-key="t-apps">Users</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                        <a href="apps-calendar.html">
+                                        <a href="{{ route('user.index') }}">
+                                            <i data-feather="user"></i>
                                             <span data-key="t-calendar">All User</span>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="apps-chat.html">
-                                            <span data-key="t-chat">Add User</span>
+                                        <a href="{{ route('user.create') }}">
+                                            <i data-feather="user-plus"></i>
+                                            <span data-key="t-chat">Create User</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -346,36 +348,55 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="users"></i>
+                                    <i data-feather="shopping-cart"></i>
                                     <span data-key="t-authentication">Products</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="auth-login.html" data-key="t-login">Add New Product</a></li>
+                                    <li><a href="auth-login.html" data-key="t-login">Create New Product</a></li>
                                     <li><a href="auth-register.html" data-key="t-register">All Product</a></li>
-                                    <li><a href="auth-recoverpw.html" data-key="t-recover-password">Category</a></li>
-                                    <li><a href="auth-lock-screen.html" data-key="t-lock-screen">Brand</a></li>
+                                    <li><a href="{{route('category.index')}}" data-key="t-recover-password">Category</a></li>
+                                    <li><a href="{{route('brand.index')}}" data-key="t-lock-screen">Brand</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="file-text"></i>
+                                    <i data-feather="user"></i>
                                     <span data-key="t-pages">Partner</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="pages-starter.html" data-key="t-starter-page">All Partner</a></li>
-                                    <li><a href="pages-maintenance.html" data-key="t-maintenance">Add Partner</a></li>
+                                    <li><a href="{{route('partner.index')}}" data-key="t-starter-page">All Partner</a></li>
+                                    <li><a href="{{route('partner.create')}}" data-key="t-maintenance">Create Partner</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="briefcase"></i>
+                                    <i data-feather="credit-card"></i>
+                                    <span data-key="t-cupon">Cupon</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="{{ route('cupon.index') }}">
+                                            <span data-key="t-chat">All Cupon</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('cupon.create') }}">
+                                            <span data-key="t-chat">Add Cupon</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="monitor"></i>
                                     <span data-key="t-components">Banner</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="ui-alerts.html" data-key="t-alerts">All banner</a></li>
-                                    <li><a href="ui-buttons.html" data-key="t-buttons">Add Banner</a></li>
+                                    <li><a href="{{route('banner.index')}}" data-key="t-alerts">All Banner</a></li>
+                                    <li><a href="{{route('banner.create')}}" data-key="t-buttons">Create Banner</a></li>
                                 </ul>
                             </li>
 
@@ -385,20 +406,35 @@
                                     <span data-key="t-ui-elements">Seller</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="extended-lightbox.html" data-key="t-lightbox">All Seller</a></li>
-                                    <li><a href="extended-rangeslider.html" data-key="t-range-slider">Add Seller</a></li>
+                                    <li><a href="#" data-key="t-lightbox">All Seller</a></li>
+                                    <li><a href="#" data-key="t-range-slider">Create Seller</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="javascript: void(0);">
-                                    <i data-feather="box"></i>
-                                    <span data-key="t-forms">Settings</span>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="settings"></i>
+                                    <span data-key="t-apps">Setting</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="form-elements.html" data-key="t-form-elements">Basic Information</a></li>
-                                    <li><a href="form-validation.html" data-key="t-form-validation">Contact Information</a></li>
-                                    <li><a href="form-advanced.html" data-key="t-form-advanced">Social Media</a></li>
+                                    <li>
+                                        <a href="{{ route('manage.basic.index') }}">
+                                            <i data-feather="tool"></i>
+                                            <span data-key="t-calendar">Basic Setting</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('manage.contact.index') }}">
+                                            <i data-feather="info"></i>
+                                            <span data-key="t-chat">Contact Information</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('manage.social.index') }}">
+                                            <i data-feather="info"></i>
+                                            <span data-key="t-chat">Social Information</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -417,8 +453,8 @@
 
                             <li>
                                 <form action="{{route('logout')}}" method="POST" id="logout-form">
-                                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     @csrf
+                                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="mdi mdi-logout font-size-16 align-middle me-1 text-danger"></i> Logout</a>
                             </form>
                             </li>
