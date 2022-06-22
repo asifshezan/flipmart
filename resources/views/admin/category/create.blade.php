@@ -50,8 +50,7 @@
                                 <div class="mb-3">
                                     <label class="form-label"><strong class="text-primary">Category Name<span
                                                 class="text-danger">*</span>:</strong></label>
-                                    <input type="text" class="form-control" name="pro_cat_name"
-                                        value="{{ old('pro_cat_name') }}">
+                                    <input type="text" class="form-control" name="pro_cat_name" value="{{ old('pro_cat_name') }}">
                                 </div>
                                 @if ($errors->has('pro_cat_name'))
                                 <span class="error text-danger">{{ $errors->first('pro_cat_name') }}</span>
@@ -64,15 +63,13 @@
                         <div class="col-lg-6 my-2">
                             <div class="form-group" {{$errors->has('pro_cat_parent') ? ' has-error':''}}>
                                 <div class="mb-3">
-                                    <label class="form-label"><strong class="text-primary">Parent
-                                            Category:</strong></label>
+                                    <label class="form-label"><strong class="text-primary">Parent Category:</strong></label>
                                     <select type="number" class="form-control" name="pro_cat_parent"
                                         id="pro_cat_parent" value="{{ old('pro_cat_parent') }}">
                                         <option label="Select Parent Category"></option>
                                         @foreach ($categories as $data)
                                         <option value="{{ $data->pro_cat_id }}">{{ $data->pro_cat_name }}</option>
                                         @endforeach
-
                                     </select>
                                 </div>
                                 @if ($errors->has('pro_cat_parent'))

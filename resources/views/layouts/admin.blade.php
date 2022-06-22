@@ -642,6 +642,7 @@
         <script src="{{asset('contents/admin')}}/js/pages/dashboard.init.js"></script>
 
         <script src="{{asset('contents/admin')}}/js/app.js"></script>
+        <script src="{{asset('contents/admin')}}/js/sweetalert.min.js"></script>
 
     </body>
 

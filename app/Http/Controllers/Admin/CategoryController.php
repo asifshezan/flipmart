@@ -28,5 +28,11 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
+    public function store(Request $request){
+        $this->validate($request,[
 
+        ],[
+
+        ]);
+    }
 }
