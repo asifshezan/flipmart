@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Coupon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Intervention\Image\ImageManagerStatic as Image;
 
-class ProductController extends Controller
+
+class CouponController extends Controller
 {
     public function __construct()
     {
@@ -19,11 +19,8 @@ class ProductController extends Controller
     }
 
     public function index(){
-        $all = Product::where('Product_status',1)->orderBy('Product_id','DESC')->get();
-        return view('admin.product.index', compact('all'));
+        $all = Coupon::where('coupon_status',1)->orderBy('coupon_id','DESC')->get();
+        return view('admin.coupon.index', compact('all'));
     }
 
-    public function create(){
-        return view('admin.product.create');
-    }
 }

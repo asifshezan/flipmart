@@ -352,9 +352,9 @@
                                     <span data-key="t-authentication">Products</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="auth-login.html" data-key="t-login">Create New Product</a></li>
-                                    <li><a href="auth-register.html" data-key="t-register">All Product</a></li>
-                                    <li><a href="{{route('category.index')}}" data-key="t-recover-password">Category</a></li>
+                                    <li><a href="{{ route('product.create')}}" data-key="t-login">Create New Product</a></li>
+                                    <li><a href="{{ route('product.index')}}" data-key="t-register">All Product</a></li>
+                                    <li><a href="{{ route('category.index')}}" data-key="t-recover-password">Category</a></li>
                                     <li><a href="{{route('brand.index')}}" data-key="t-lock-screen">Brand</a></li>
                                 </ul>
                             </li>
@@ -369,26 +369,6 @@
                                     <li><a href="{{route('partner.create')}}" data-key="t-maintenance">Create Partner</a></li>
                                 </ul>
                             </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="credit-card"></i>
-                                    <span data-key="t-cupon">Cupon</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-                                        <a href="{{ route('cupon.index') }}">
-                                            <span data-key="t-chat">All Cupon</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('cupon.create') }}">
-                                            <span data-key="t-chat">Add Cupon</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="monitor"></i>
