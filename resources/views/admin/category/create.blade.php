@@ -95,20 +95,14 @@
                                 <div class="col-lg-8">
                                     <div class="form-group" {{$errors->has('pro_cat_icon') ? ' has-error':''}}>
                                         <div class="mb-3">
-                                            <label class="form-label"><strong class="text-primary">Category
-                                                    Icon</strong></label>
-                                            <input type="file" id="category_icon_input" class="form-control"
-                                                name="pro_cat_icon" value="{{ old('pro_cat_icon') }}">
-                                        </div>
-                                        @if ($errors->has('pro_cat_icon'))
-                                        <span class="error text-danger">{{ $errors->first('pro_cat_icon') }}</span>
-                                        @endif
+                                            <label for="banner_subtitle">Category Icon (<span class="text-danger">font awesome 4*</span>)</label>
+                                <input class="form-control" type="text" name="pro_cat_icon" value="{{ old('pro_cat_icon') }}" placeholder="example: fa fa-product-hunt">
+                                @error('pro_cat_icon')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-4 m-auto">
-                                    <img id="category_icon_preview" src="{{ asset('uploads/no-entry.png') }}"
-                                        alt="category_icon" class="img-fluid rounded" width="100" />
-                                </div>
+
                             </div>
                         </div>
                         <div class="col-lg-12  my-2">
@@ -116,8 +110,7 @@
                                 <div class="col-lg-7">
                                     <div class="form-group" {{$errors->has('pro_cat_image') ? ' has-error':''}}>
                                         <div class="mb-3">
-                                            <label class="form-label"><strong class="text-primary">Category
-                                                    Image</strong></label>
+                                            <label class="form-label"><strong class="text-primary">Category Image</strong></label>
                                             <input type="file" id="category_image_input" class="form-control"
                                                 name="pro_cat_image" value="{{ old('pro_cat_image') }}">
                                         </div>

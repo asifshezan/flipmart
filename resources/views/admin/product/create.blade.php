@@ -38,7 +38,7 @@
                                 @enderror
                             </div>
                             @php
-                                $categories = App\Models\Category::where('pro_cat_status', 1)->get();
+                                $categories = App\Models\ProductCategory::where('pro_cat_status', 1)->get();
                             @endphp
                             <div class="col-md-6 my-2">
                                 <label for="pro_category_id">Product Category</label>
