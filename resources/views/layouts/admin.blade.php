@@ -417,7 +417,12 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            <li>
+                                <a href="{{route('website.home')}}" class="">
+                                    <i class="bx bx-globe"></i>
+                                    <span data-key="t-website">Website</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="javascript: void(0);" class="">
                                     <i data-feather="cpu"></i>

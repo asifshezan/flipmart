@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\website\WebsiteContoller;
+use App\Http\Controllers\website\WebsiteController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PartnerController;
@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Admin\CategoryController;
 
-Route::get('/', [WebsiteContoller::class, 'home'])->name('website.home');
+Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard.index');
