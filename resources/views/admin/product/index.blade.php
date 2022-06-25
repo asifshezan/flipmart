@@ -39,7 +39,7 @@
                         <tr>
 
                             <td>{{ $data->product_name }}</td>
-                            <td>{{ $data->category->pro_cate_name}}</td>
+                            <td>{{ $data->category->pro_cat_name}}</td>
                             <td>{{ $data->brand->brand_name }}</td>
                                 <td>
                                     @if($data->product_image)

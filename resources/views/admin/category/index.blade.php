@@ -55,7 +55,13 @@
                                 @endif
                             </td>
                             <td>{{ $data->pro_cat_name }}</td>
-                            <td>{{ $data->cat_parent->pro_cat_name}}</td>
+                            <td>
+                                @if ($data->pro_cat_parent != NULL)
+                                {{ $data->cat_parent->pro_cat_name }}
+                                @else
+                                N/A
+                                @endif
+                            </td>
                             <td>{{ $data->pro_cat_order }}</td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -69,7 +75,7 @@
                                                 <i class="bx bx-show-alt"></i>view</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="{{ route('product.category.edit', $data->pro_cat_slug) }}">
+                                            <a class="dropdown-item" href="#">
                                                 <i class="bx bx-edit-alt"></i>Edite</a>
                                         </li>
                                         <li>
@@ -95,7 +101,7 @@
                                         Do you really want to delete these records? This process cannot be undone.
                                     </div>
                                     <div class="modal-footer">
-                                        <a type="submit" href="{{ route('product.category.softdelete', $data->pro_cat_slug) }}" class="btn btn-danger" name="delete_data">Yes,
+                                        <a type="submit" href="" class="btn btn-danger" name="delete_data">Yes,
                                             delete it
                                         </a>
                                         <a type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</a>

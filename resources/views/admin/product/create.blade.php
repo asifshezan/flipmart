@@ -127,19 +127,19 @@
 
                         <div class="col-md-6 my-2">
                             <label for="product_gallery">Product Gallery Image</label>
-                            <input class="form-control" multiple type="file" name="product_gallery" value="{{ old('product_gallery') }}">
+                            <input class="form-control" multiple type="file" name="product_gallery[]" value="{{ old('product_gallery') }}">
                             @error('product_gallery')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="col-md-6 my-2 d-flex">
-                            <img id="product_image_preview" style="width: 100px" class="m-auto" src="{{ asset('backend/default/no_image.png') }}" alt="Banner Image">
+                            <img id="product_image_preview" style="width: 100px" class="m-auto" src="{{ asset('uploads/no_image.png') }}" alt="Banner Image">
                         </div>
                         <div class="col-md-12 my-2">
-                            <label for="product_detils">Product Details</label>
-                            <textarea class="form-control" name="product_detils" id="ckeditor-classic-1"></textarea>
-                            @error('product_detils')
+                            <label for="product_details">Product Details</label>
+                            <textarea class="form-control" name="product_details" id="ckeditor-classic-1"></textarea>
+                            @error('product_details')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
