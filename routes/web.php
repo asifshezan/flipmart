@@ -82,7 +82,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
 
 
     // <<===== BASIC INFO ROUTE LIST ======>>
-    Route::get('/basic-info',[ ManageController::class, 'basic_index' ])->name('manage.basic.index');
+    Route::get('/basic_info', [ManageController::class, 'basic_index'])->name('basic.index');
     Route::post('/basic-info',[ ManageController::class, 'basic_update' ])->name('manage.basic.update');
 
     // <<===== CONTACT INFO ROUTE LIST ======>>

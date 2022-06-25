@@ -46,7 +46,7 @@ class CategoryController extends Controller
         if($request->hasFile('pro_cat_image')){
             $image = $request->file('pro_cat_image');
             $imageName = $insert . time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(200,200)->save('uploads/' . $imageName);
+            Image::make($image)->resize(200,200)->save('uploads/category' . $imageName);
 
             ProductCategory::where('pro_cat_id',$insert)->update([
                 'pro_cat_image' => $imageName,
@@ -58,6 +58,20 @@ class CategoryController extends Controller
             return redirect()->back();
         }else{
             Session::flash('error','error');
+            return redirect()->back();
+        }
+    }
+
+    public function softdelete($slug){
+        $soft = ProductCategory::where('pro_cat_slug',$slug)->where('pro_cat_status',1)->update([
+            'pro_cat_status' => 0,
+            'updated_at' => Carbon::now()->toDateTimeString()
+        ]);
+        if($soft){
+            Session::flash('success','successfully update partner');
+            return redirect()->back();
+        }else{
+            Session::flash('error','Opps! Failed to update.');
             return redirect()->back();
         }
     }

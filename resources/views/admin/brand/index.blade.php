@@ -38,10 +38,10 @@
                                 <td>
                                     @if ($data['brand_image'])
                                     <img style="width:50px"
-                                    src="{{ asset('uploads/brand/'.$data['brand_image']) }}"
+                                    src="{{ asset('uploads/brand/'. $data->brand_image) }}"
                                     alt="Brand Image">
                                     @else
-                                    <img style="width:50px" src="{{ asset('uploads/no_image.png') }}" alt="Brand Image">
+                                    <img style="width:50px" src="{{ asset('uploads/no-entry.png') }}" alt="Brand Image">
                                     @endif
                                 </td>
                                 <td class="text-center">
@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="col-md-12 my-2 d-flex">
-                            <img id="brand_image_preview" style="width: 100px" class="m-auto" src="{{ asset('uploads/no_image.png') }}" alt="Banner Image">
+                            <img id="brand_image_preview" style="width: 100px" class="m-auto" src="{{ asset('uploads/no-entry.png') }}" alt="Banner Image">
                         </div>
                         <div class="col-md-12 mt-4">
                             <button type="submit" class="btn btn-primary waves-effect waves-light">

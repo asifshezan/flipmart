@@ -398,21 +398,21 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                        <a href="{{ route('manage.basic.index') }}">
+                                        <a href="{{ route('basic.index') }}">
                                             <i data-feather="tool"></i>
-                                            <span data-key="t-calendar">Basic Setting</span>
+                                            <span data-key="t-basic">Basic Setting</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('manage.contact.index') }}">
                                             <i data-feather="info"></i>
-                                            <span data-key="t-chat">Contact Information</span>
+                                            <span data-key="t-contact">Contact Information</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('manage.social.index') }}">
                                             <i data-feather="info"></i>
-                                            <span data-key="t-chat">Social Information</span>
+                                            <span data-key="t-social">Social Information</span>
                                         </a>
                                     </li>
                                 </ul>

@@ -44,7 +44,7 @@
 
                 </script>
                 @endif
-                <form method="POST" action="{{ route('manage.basic.upate') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('manage.basic.update') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">

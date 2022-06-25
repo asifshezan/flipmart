@@ -38,7 +38,7 @@
                         <tr>
                             <td>
                                 @if($data->pro_cat_icon)
-                                <img id="category_icon_preview" src="{{ asset('uploads/category/icon/'.$data->pro_cat_icon) }}"
+                                <img id="category_icon_preview" src="{{ asset('uploads/category/'.$data->pro_cat_icon) }}"
                                 alt="icon_image" width="50px;">
                                 @else
                                 <img id="category_image_preview" src="{{ asset('uploads/no-entry.png') }}"
@@ -47,7 +47,7 @@
                             </td>
                             <td>
                                 @if($data->pro_cat_image)
-                                <img id="category_image_preview" src="{{ asset('uploads/category/image/'.$data->pro_cat_image) }}"
+                                <img id="category_image_preview" src="{{ asset('uploads/category/'.$data->pro_cat_image) }}"
                                 alt="category_image" width="100px;">
                                 @else
                                 <img id="category_image_preview" src="{{ asset('uploads/no-entry.png') }}"
@@ -101,7 +101,7 @@
                                         Do you really want to delete these records? This process cannot be undone.
                                     </div>
                                     <div class="modal-footer">
-                                        <a type="submit" href="" class="btn btn-danger" name="delete_data">Yes,
+                                        <a type="submit" href="{{ route('category.softdelete', $data->pro_cat_slug) }}" class="btn btn-danger" name="delete_data">Yes,
                                             delete it
                                         </a>
                                         <a type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</a>
