@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BasicSetting;
 use App\Models\ContactInfo;
+use App\Models\SocialInfo;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -97,4 +98,37 @@ class ManageController extends Controller
             return redirect()->back();
         }
     }
+
+    Public function social_index(){
+        $data = SocialInfo::where('sm_status',1)->where('sm_id',1)->firstOrFail();
+        return view('admin.settings.social_info', compact('data'));
+    }
+
+    Public function social_update(Request $request){
+        $update = SocialInfo::where('sm_id', 1)->update([
+        'sm_facebook' => $request->sm_facebook,
+        'sm_twitter' => $request->sm_twitter,
+        'sm_linkedin' => $request->sm_linkedin,
+        'sm_dribble' => $request->sm_dribble,
+        'sm_youtube' => $request->sm_youtube,
+        'sm_slack' => $request->sm_slack,
+        'sm_instagram' => $request->sm_instagram,
+        'sm_behance' => $request->sm_behance,
+        'sm_google' => $request->sm_google,
+        'sm_raddit' => $request->sm_raddit,
+        'sm_status' => 1,
+        'updated_at' => Carbon::now()->toDateTimestring()
+        ]);
+
+        if($update){
+            Session::flash('success', 'Successfully Update Social Setting');
+            return redirect()->back();
+        }else{
+        Session::flash('error', 'Update Failed');
+        return redirect()->back();
+
+        }
+
+    }
+
 }

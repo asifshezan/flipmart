@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="form-group" {{$errors->has('cont_add2	') ? ' has-error':''}}>
+                            <div class="form-group" {{$errors->has('cont_add2') ? ' has-error':''}}>
                                 <div class="mb-3">
                                     <label class="form-label"><strong class="text-primary">Address 2<span
                                                 class="text-danger">*</span>:</strong></label>

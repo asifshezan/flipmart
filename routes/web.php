@@ -91,7 +91,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
 
     // <<===== SOCIAL MEDIA ROUTE LIST ======>>
     Route::get('/social-media',[ ManageController::class, 'social_index' ])->name('manage.social.index');
-    Route::post('/social-media',[ ManageController::class, 'socail_update' ])->name('manage.social.update');
+    Route::post('/social-media',[ ManageController::class, 'social_update' ])->name('manage.social.update');
 
 
     Route::group(['prefix' => 'category'], function(){

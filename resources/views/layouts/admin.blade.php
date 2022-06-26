@@ -405,13 +405,13 @@
                                     </li>
                                     <li>
                                         <a href="{{ route('manage.contact.index') }}">
-                                            <i data-feather="info"></i>
+                                            <i class="bx bx-phone-call"></i>
                                             <span data-key="t-contact">Contact Information</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('manage.social.index') }}">
-                                            <i data-feather="info"></i>
+                                            <i class="mdi mdi-chat-processing-outline"></i>
                                             <span data-key="t-social">Social Information</span>
                                         </a>
                                     </li>
@@ -425,7 +425,7 @@
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="">
-                                    <i data-feather="cpu"></i>
+                                    <i class="bx bx-brush-alt"></i>
                                     <span data-key="t-icons">Recycle Bin</span>
                                 </a>
                                 {{-- <ul class="sub-menu" aria-expanded="false">
