@@ -45,8 +45,8 @@ class CategoryController extends Controller
         ]);
         if($request->hasFile('pro_cat_image')){
             $image = $request->file('pro_cat_image');
-            $imageName = $insert . time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(200,200)->save('uploads/category' . $imageName);
+            $imageName = $insert . time() . rand(1000,10000). '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(200,200)->save('uploads/category/' . $imageName);
 
             ProductCategory::where('pro_cat_id',$insert)->update([
                 'pro_cat_image' => $imageName,

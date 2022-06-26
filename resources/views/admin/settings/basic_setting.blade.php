@@ -54,7 +54,7 @@
                                                 class="text-danger">*</span>:</strong></label>
                                                 <input type="hidden" class="form-control" name="Basic_id" value="$data->Basic_id">
                                     <input type="text" class="form-control" name="basic_company"
-                                        value="{{ old('basic_company') }}">
+                                        value="{{ $basic->basic_company }}">
                                 </div>
                                 @if ($errors->has('basic_company'))
                                 <span class="error">{{ $errors->first('basic_company') }}</span>
@@ -67,7 +67,7 @@
                                     <label class="form-label"><strong class="text-primary">Basic Title<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="text" class="form-control" name="basic_title"
-                                        value="{{ old('basic_title') }}">
+                                        value="{{ $basic->basic_title }}">
                                 </div>
                                 @if ($errors->has('basic_title'))
                                 <span class="error">{{ $errors->first('basic_title') }}</span>
@@ -89,8 +89,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 m-auto">
-                                    @if($data->basic_logo)
-                                    <img id="main-preview-image" src="{{ asset('uploads/general/'.$data->basic_logo) }}" alt="image"
+                                    @if($basic->basic_logo)
+                                    <img id="main-preview-image" src="{{ asset('uploads/basic_info/'.$basic->basic_logo) }}" alt="image"
                                         class="img-fluid rounded" width="100">
                                     @else
                                     <img id="main-preview-image" src="{{ asset('uploads/no-entry.png') }}"
@@ -114,8 +114,8 @@
                                     @endif
                                 </div>
                                 <div class="col-lg-4 m-auto">
-                                    @if ($data->basic_flogo)
-                                    <img id="main-preview-image" src="{{ asset('uploads/general/'.$data->basic_flogo) }}" alt="image"
+                                    @if ($basic->basic_flogo)
+                                    <img id="main-preview-image" src="{{ asset('uploads/basic_info/'.$basic->basic_flogo) }}" alt="image"
                                         class="img-fluid rounded" width="100">
                                     @else
                                     <img id="main-preview-image" src="{{ asset('uploads/no-entry.png') }}"
@@ -139,8 +139,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 m-auto">
-                                    @if ($data->basic_favicon)
-                                    <img id="main-preview-image" src="{{ asset('uploads/general/'.$data->basic_favicon) }}" alt="image"
+                                    @if ($basic->basic_favicon)
+                                    <img id="main-preview-image" src="{{ asset('uploads/basic_info/'.$basic->basic_favicon) }}" alt="image"
                                         class="img-fluid rounded" width="100">
                                     @else
                                     <img id="main-preview-image" src="{{ asset('uploads/no-entry.png') }}"

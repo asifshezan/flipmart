@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="col-md-6 my-2 d-flex">
-                            <img id="banner_image_preview" style="width: 100px" class="m-auto" src="{{ asset('uploads/no_image.png') }}" alt="Banner Image">
+                            <img id="banner_image_preview" style="width: 100px" class="m-auto" src="{{ asset('uploads/no-entry.png') }}" alt="Banner Image">
                         </div>
                         <div class="col-md-2 mt-4">
                             <button type="submit" class="btn btn-primary waves-effect waves-light">

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\BasicSetting;
 use App\Models\ContactInfo;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Str;
 
 class ManageController extends Controller
@@ -17,8 +19,57 @@ class ManageController extends Controller
     }
 
     public function basic_index(){
-        $data = BasicSetting::where('basic_status',1)->where('basic_id','ASC')->firstOrFail();
-        return view('admin.settings.basic_setting', compact('data'));
+        $basic = BasicSetting::where('basic_id',1)->firstorFail();
+        return view('admin.settings.basic_setting',compact('basic'));
+    }
+
+    public function basic_update(Request $request){
+
+        $basic = BasicSetting::where('Basic_id',1)->firstorFail();
+        //basic_logo
+        if($request->hasfile('basic_logo')){
+        $image = $request->file('basic_logo');
+        $header_logo = 'Basic' . time() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(250,250)->save('uploads/basic_info/' . $header_logo);
+        }else{
+            $header_logo = $basic->basic_logo;
+        }
+
+    //basic_flogo
+    if($request->hasfile('basic_flogo')){
+        $image = $request->file('basic_flogo');
+        $footer_logo = 'Fotter' . time() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(250,250)->save('uploads/basic_info/' . $footer_logo);
+    }else{
+        $footer_logo = $basic->basic_flogo;
+    }
+
+        //basic_favicon
+        if($request->hasfile('basic_favicon')){
+            $image = $request->file('basic_favicon');
+            $favicon_image = 'Favicon' . time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(250,250)->save('uploads/basic_info/' . $favicon_image);
+        }else{
+            $favicon_image = $basic->basic_favicon;
+        }
+
+        $update = BasicSetting::where('Basic_id', 1)->update([
+            'basic_company' => $request['basic_company'],
+            'basic_title' => $request['basic_title'],
+            'basic_logo' => $header_logo,
+            'basic_flogo' => $footer_logo,
+            'basic_favicon' => $favicon_image,
+            'updated_at' => Carbon::now()->toDateTimestring(),
+        ]);
+
+            if($update){
+                Session::flash('success', 'Successfully Updated');
+                return redirect()->back();
+            }else{
+                Session::flash('error', 'Opps! Updated Failed');
+                return redirect()->back();
+            }
+
     }
 
 

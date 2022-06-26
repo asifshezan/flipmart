@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="col-md-12 my-3 d-flex">
-                            <img id="partner_image_preview" style="width: 70px" class="m-auto" src="{{ asset('uploads/no_image.png') }}" alt="Category Image">
+                            <img id="partner_image_preview" style="width: 70px" class="m-auto" src="{{ asset('uploads/no-entry.png') }}" alt="Category Image">
                         </div>
 
                         <div class="col-md-2 mt-4">
