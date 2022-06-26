@@ -44,7 +44,7 @@
 
                 </script>
                 @endif
-                <form method="POST" action="{{ route('manage.contact.upate') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('manage.contact.update') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">
@@ -52,9 +52,9 @@
                                 <div class="mb-3">
                                     <label class="form-label"><strong class="text-primary">Phone 1<span
                                                 class="text-danger">*</span>:</strong></label>
-                                                <input type="hidden" class="form-control" name="cont_id" value="$data->cont_id">
+                                                <input type="hidden" class="form-control" name="cont_id" value="{{ $data->cont_id }}">
                                     <input type="phone" class="form-control" name="cont_phone1"
-                                        value="{{ $data->phone1 }}">
+                                        value="{{ $data->cont_phone1 }}">
                                 </div>
                                 @if ($errors->has('cont_phone1'))
                                 <span class="error">{{ $errors->first('cont_phone1') }}</span>
@@ -67,7 +67,7 @@
                                     <label class="form-label"><strong class="text-primary">Phone 2<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="phone" class="form-control" name="cont_phone2"
-                                        value="{{ old('cont_phone2') }}">
+                                        value="{{ $data->cont_phone2 }}">
                                 </div>
                                 @if ($errors->has('cont_phone2'))
                                 <span class="error">{{ $errors->first('cont_phone2') }}</span>
@@ -80,7 +80,7 @@
                                     <label class="form-label"><strong class="text-primary">Email 1<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="email" class="form-control" name="cont_email1"
-                                        value="{{ old('cont_email1') }}">
+                                        value="{{ $data->cont_email1 }}">
                                 </div>
                                 @if ($errors->has('cont_email1'))
                                 <span class="error">{{ $errors->first('cont_email1') }}</span>
@@ -93,7 +93,7 @@
                                     <label class="form-label"><strong class="text-primary">Email 2<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="email" class="form-control" name="cont_email2"
-                                        value="{{ old('cont_email2') }}">
+                                        value="{{ $data->cont_email2 }}">
                                 </div>
                                 @if ($errors->has('cont_email2'))
                                 <span class="error">{{ $errors->first('cont_email2') }}</span>
@@ -106,7 +106,7 @@
                                     <label class="form-label"><strong class="text-primary">Address 1<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="text" class="form-control" name="cont_add1"
-                                        value="{{ old('cont_add1') }}">
+                                        value="{{ $data->cont_add1 }}">
                                 </div>
                                 @if ($errors->has('cont_add1'))
                                 <span class="error">{{ $errors->first('cont_add1') }}</span>
@@ -119,7 +119,7 @@
                                     <label class="form-label"><strong class="text-primary">Address 2<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="text" class="form-control" name="cont_add2"
-                                        value="{{ old('cont_add2') }}">
+                                        value="{{ $data->cont_add2 }}">
                                 </div>
                                 @if ($errors->has('cont_add2'))
                                 <span class="error">{{ $errors->first('cont_add2') }}</span>

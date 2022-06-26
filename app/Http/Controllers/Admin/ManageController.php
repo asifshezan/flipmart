@@ -77,4 +77,24 @@ class ManageController extends Controller
         $data = ContactInfo::where('cont_status',1)->where('cont_id', 1)->firstOrFail();
         return view('admin.settings.contact_info', compact('data'));
     }
+
+    Public function contact_update(Request $request){
+        // dd($request->all());
+        $data = ContactInfo::where('cont_id', 1)->where('cont_status', 1)->update([
+            'cont_phone1' => $request->cont_phone1,
+            'cont_phone2' => $request->cont_phone2,
+            'cont_email1' => $request->cont_email1,
+            'cont_email2' => $request->cont_email2,
+            'cont_add1' => $request->cont_add1,
+            'cont_add2' => $request->cont_add2,
+            'updated_at' => Carbon::now()->toDateTimeString(),
+        ]);
+        if ($data) {
+            Session::flash('success', 'Successfully Update');
+            return redirect()->back();
+        } else {
+            Session::flash('error', 'OPPs!Update Failed');
+            return redirect()->back();
+        }
+    }
 }

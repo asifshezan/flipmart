@@ -66,8 +66,7 @@
                                 <div class="mb-3">
                                     <label class="form-label"><strong class="text-primary">Basic Title<span
                                                 class="text-danger">*</span>:</strong></label>
-                                    <input type="text" class="form-control" name="basic_title"
-                                        value="{{ $basic->basic_title }}">
+                                    <input type="text" class="form-control" name="basic_title" value="{{ $basic->basic_title }}">
                                 </div>
                                 @if ($errors->has('basic_title'))
                                 <span class="error">{{ $errors->first('basic_title') }}</span>
