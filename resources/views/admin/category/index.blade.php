@@ -37,17 +37,15 @@
                         @foreach ($all as $data )
                         <tr>
                             <td>
-                                @if($data->pro_cat_icon)
-                                <img id="category_icon_preview" src="{{ asset('uploads/category/'.$data->pro_cat_icon) }}"
-                                alt="icon_image" width="50px;">
-                                @else
-                                <img id="category_image_preview" src="{{ asset('uploads/no-entry.png') }}"
-                                alt="icon_image" class="img-fluid rounded" width="100" />
-                                @endif
+                                @if ($data['pro_cat_icon'])
+                                        <i style="font-size:3em;" class="{{ $data['pro_cat_icon'] }}" aria-hidden="true"></i>
+                                        @else
+                                        <img id="category_icon" style="width:50px" src="{{ asset('uploads/no-entry.png') }}" alt="Category Icon">
+                                        @endif
                             </td>
                             <td>
                                 @if($data->pro_cat_image)
-                                <img id="category_image_preview" src="{{ asset('uploads/category/'.$data->pro_cat_image) }}"
+                                <img id="category_image_preview" src="{{ asset('uploads/category/'. $data->pro_cat_image) }}"
                                 alt="category_image" width="100px;">
                                 @else
                                 <img id="category_image_preview" src="{{ asset('uploads/no-entry.png') }}"
@@ -76,7 +74,7 @@
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="#">
-                                                <i class="bx bx-edit-alt"></i>Edite</a>
+                                                <i class="bx bx-edit-alt"></i>Edit</a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item  btn-link delete-modal" href="#"

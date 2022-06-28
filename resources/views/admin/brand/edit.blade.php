@@ -55,7 +55,7 @@
 
                         <div class="col-md-12 my-2">
                             <label for="brand_image">Brand Image</label>
-                            <input id="brand_image_input" class="form-control" type="file" name="brand_image" value="{{ old('brand_image') }}">
+                            <input id="brand_image_input" class="form-control" type="file" name="brand_image" value="{{ $brand->brand_image }}">
                             @error('brand_image')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -63,10 +63,10 @@
 
                         <div class="col-md-12 my-2 d-flex justify-content-center">
                             @if ($brand->brand_image)
-                                <img style="width:100px" id="brand_image_preview" class="img-fluid rounded" src="{{ asset('backend/uploads/brand/'.$brand->brand_image) }}"
+                                <img style="width:100px" id="brand_image_preview" class="img-fluid rounded" src="{{ asset('uploads/brand/'.$brand->brand_image) }}"
                                 alt="Brand Image">
                             @else
-                                <img style="width:100px" id="brand_image_preview" class="img-fluid rounded" src="{{ asset('backend/default/no-image-pro.png') }}"
+                                <img style="width:100px" id="brand_image_preview" class="img-fluid rounded" src="{{ asset('default/no-image-pro.png') }}"
                                 alt="Brand Image">
                             @endif
                         </div>
