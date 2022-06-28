@@ -62,6 +62,48 @@ class CategoryController extends Controller
         }
     }
 
+    public function edit($slug){
+        $category = ProductCategory::where('pro_cat_status',1)->where('pro_cat_slug',$slug)->firstOrFail();
+        return view('admin.category.edit', compact('category'));
+    }
+
+    public function update(Request $request){
+        $this->validate($request,[
+            'pro_cat_name' => 'required',
+        ],[
+            'pro_cat_name.required' => 'Enter Your oroduct category Name.'
+        ]);
+        $id = $request->pro_cat_id;
+        $slug = Str::slug($request->pro_cat_name, '-');
+        $editor = Auth::user()->id;
+        $update = ProductCategory::where('pro_cat_id',$id)->update([
+            'pro_cat_name' => $request->pro_cat_name,
+            'pro_cat_slug' => $slug,
+            'pro_cat_parent' => $request->pro_cat_parent,
+            'pro_cat_order' => $request->pro_cat_order,
+            'pro_cat_icon' => $request->pro_cat_icon,
+            'pro_cat_editor' => $editor,
+            'updated_at' => Carbon::now()->toDateTimeString(),
+        ]);
+        if($request->hasFile('pro_cat_image')){
+            $image = $request->file('pro_cat_image');
+            $imageName = $id . time() . rand(1000,10000). '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(200,200)->save('uploads/category/' . $imageName);
+
+            ProductCategory::where('pro_cat_id',$id)->update([
+                'pro_cat_image' => $imageName,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+        }
+        if($update){
+            Session::flash('success','successs');
+            return redirect()->back();
+        }else{
+            Session::flash('error','error');
+            return redirect()->back();
+        }
+    }
+
     public function softdelete($slug){
         $soft = ProductCategory::where('pro_cat_slug',$slug)->where('pro_cat_status',1)->update([
             'pro_cat_status' => 0,

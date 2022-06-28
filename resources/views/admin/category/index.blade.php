@@ -73,7 +73,7 @@
                                                 <i class="bx bx-show-alt"></i>view</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{ route('category.edit', $data->pro_cat_slug)}}">
                                                 <i class="bx bx-edit-alt"></i>Edit</a>
                                         </li>
                                         <li>
