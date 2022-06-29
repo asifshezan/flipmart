@@ -19,7 +19,7 @@ class CategoryController extends Controller
     }
 
     public function index(){
-    $all = ProductCategory::where('pro_cat_status',1)->orderBy('pro_cat_id','DESC')->get();
+    $all = ProductCategory::where('pro_cat_status',1)->orderBy('pro_cat_id','ASC')->get();
     return view('admin.category.index', compact('all'));
     }
 

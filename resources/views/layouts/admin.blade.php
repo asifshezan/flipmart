@@ -18,6 +18,9 @@
 
         <!-- preloader css -->
         <link rel="stylesheet" href="{{asset('contents/admin')}}/css/preloader.min.css" type="text/css" />
+        <link rel="stylesheet" href="{{asset('contents/website')}}/css/all.min.css" type="text/css" />
+        <link rel="stylesheet" href="{{asset('contents/website')}}/css/fontawesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="{{asset('contents/admin')}}/css/font-awesome.css" type="text/css" />
 
         <!-- Bootstrap Css -->
         <link href="{{asset('contents/admin')}}/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
