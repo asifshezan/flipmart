@@ -26,6 +26,8 @@
 
 <!-- Icons/Glyphs -->
 <link rel="stylesheet" href="{{asset('contents/website')}}/css/font-awesome.css">
+<link rel="stylesheet" href="{{asset('contents/website')}}/css/all.min.css" type="text/css" />
+<link rel="stylesheet" href="{{asset('contents/website')}}/css/fontawesome.min.css" type="text/css" />
 
 <!-- Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
