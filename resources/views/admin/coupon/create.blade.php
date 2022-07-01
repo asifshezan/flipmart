@@ -14,9 +14,9 @@
     <div class="col-12">
         <div class="card border border-primary">
             <div class="card-header bg-transparent border-primary d-flex justify-content-between">
-                <h5 class="my-0 text-primary align-middle"><i class="mdi mdi-bullseye-arrow me-3"></i> Create coupon </h5>
+                <h5 class="my-0 text-primary align-middle"><i class="mdi mdi-bullseye-arrow me-3"></i> Create Coupon </h5>
                 <a href="{{ route('coupon.index') }}" class="btn btn-sm btn-primary waves-effect waves-light">
-                    <i class="bx bx-list-plus font-size-20 align-middle me-2"></i> All coupons
+                    <i class="bx bx-list-plus font-size-20 align-middle me-2"></i> All Coupons
                 </a>
             </div>
             <div class="card-body">
@@ -49,7 +49,7 @@
                         <div class="col-lg-6 my-2">
                             <div class="form-group" {{$errors->has('coupon_title') ? ' has-error':''}}>
                                 <div class="mb-3">
-                                    <label class="form-label"><strong class="text-primary">coupon Title<span
+                                    <label class="form-label"><strong class="text-primary">Coupon Title<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="text" class="form-control" name="coupon_title" value="{{ old('coupon_title') }}">
                                 </div>
@@ -61,7 +61,7 @@
                         <div class="col-lg-6 my-2">
                             <div class="form-group" {{$errors->has('coupon_code') ? ' has-error':''}}>
                                 <div class="mb-3">
-                                    <label class="form-label"><strong class="text-primary">coupon Code<span
+                                    <label class="form-label"><strong class="text-primary">Coupon Code<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="text" class="form-control" name="coupon_code" value="{{ old('coupon_code') }}">
                                 </div>
@@ -70,10 +70,11 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="col-lg-6 my-2">
                             <div class="form-group" {{$errors->has('coupon_starting') ? ' has-error':''}}>
                                 <div class="mb-3">
-                                    <label class="form-label"><strong class="text-primary">coupon starting<span
+                                    <label class="form-label"><strong class="text-primary">Coupon starting<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="date" class="form-control" name="coupon_starting" value="{{ old('coupon_starting') }}">
                                 </div>
@@ -85,7 +86,7 @@
                         <div class="col-lg-6 my-2">
                             <div class="form-group" {{$errors->has('coupon_ending') ? ' has-error':''}}>
                                 <div class="mb-3">
-                                    <label class="form-label"><strong class="text-primary">coupon Ending<span
+                                    <label class="form-label"><strong class="text-primary">Coupon Ending<span
                                                 class="text-danger">*</span>:</strong></label>
                                     <input type="date" class="form-control" name="coupon_ending" value="{{ old('coupon_ending') }}">
                                 </div>
@@ -97,7 +98,7 @@
                         <div class="col-lg-12 my-2">
                             <div class="form-group" {{$errors->has('coupon_remarks') ? ' has-error':''}}>
                                 <div class="mb-3">
-                                    <label class="form-label"><strong class="text-primary">coupon Remarks:</strong></label>
+                                    <label class="form-label"><strong class="text-primary">Coupon Remarks:</strong></label>
                                     <textarea type="text" class="form-control" name="coupon_remarks" value="{{ old('coupon_remarks') }}"></textarea>
                                 </div>
                                 @if ($errors->has('coupon_remarks'))

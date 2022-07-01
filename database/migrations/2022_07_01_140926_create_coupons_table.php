@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -15,15 +16,17 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->bigIncrements('coupon_id');
-            $table->string('coupon_title',100)->nullable();
-            $table->string('coupon_code',50)->nullable();
-            $table->date('coupon_starting')->nullable();
-            $table->date('coupon_ending')->nullable();
-            $table->string('coupon_remarks',250)->nullable();
-            $table->integer('coupon_creator')->nullable();
-            $table->integer('coupon_editor')->nullable();
-            $table->string('coupon_slug')->uniqid();
-            $table->integer('coupon_status')->default(1);
+            $table->string('coupon_title');
+            $table->string('coupon_code');
+            $table->string('coupon_amount');
+            $table->date('coupon_strating');
+            $table->date('coupon_ending');
+            $table->string('coupon_remarks')->nullable();
+            $table->integer('coupon_creator');
+            $table->integer('coupon_editor');
+            $table->string('coupon_slug')->unique();
+            $table->string('coupon_status')->default(1);
+            $table->timestamps();
         });
     }
 

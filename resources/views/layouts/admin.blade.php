@@ -398,6 +398,16 @@
                                     <li><a href="#" data-key="t-range-slider">Create Seller</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="gift"></i>
+                                    <span data-key="t-coupon">Coupons</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('coupon.index') }}">All Coupon</a></li>
+                                    <li><a href="{{ route('coupon.create') }}">Add Coupon</a></li>
+                                </ul>
+                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
