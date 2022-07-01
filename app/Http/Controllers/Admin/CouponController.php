@@ -37,6 +37,7 @@ class CouponController extends Controller
         $insert = Coupon::insertGetId([
             'coupon_title' => $request['coupon_title'],
             'coupon_code' => $request['coupon_code'],
+            'coupon_amount' => $request['coupon_amount'],
             'coupon_starting' => $request['coupon_starting'],
             'coupon_ending' => $request['coupon_ending'],
             'coupon_remarks' => $request['coupon_remarks'],

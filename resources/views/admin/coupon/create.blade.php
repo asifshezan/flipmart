@@ -70,7 +70,18 @@
                                 @endif
                             </div>
                         </div>
-
+                        <div class="col-lg-6 my-2">
+                            <div class="form-group" {{$errors->has('coupon_amount') ? ' has-error':''}}>
+                                <div class="mb-3">
+                                    <label class="form-label"><strong class="text-primary">Coupon Amount<span
+                                                class="text-danger">*</span>:</strong></label>
+                                    <input type="text" class="form-control" name="coupon_amount" value="{{ old('coupon_amount') }}">
+                                </div>
+                                @if ($errors->has('coupon_amount'))
+                                <span class="error text-danger">{{ $errors->first('coupon_amount') }}</span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="col-lg-6 my-2">
                             <div class="form-group" {{$errors->has('coupon_starting') ? ' has-error':''}}>
                                 <div class="mb-3">
