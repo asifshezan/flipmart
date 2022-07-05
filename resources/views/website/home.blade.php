@@ -5,7 +5,7 @@
         <div class="side-menu animate-dropdown outer-bottom-xs">
             <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
             <nav class="yamm megamenu-horizontal">
-              <ul class="nav">
+            <ul class="nav">
                     @php
                     $categories = App\Models\ProductCategory::where('pro_cat_status',1)->where('pro_cat_parent',NULL)->get();
                     @endphp
