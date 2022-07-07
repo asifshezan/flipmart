@@ -10,7 +10,7 @@
 <meta name="author" content="">
 <meta name="keywords" content="MediaCenter, Template, eCommerce">
 <meta name="robots" content="all">
-<title>Flipmart premium HTML5 & CSS3 Template</title>
+<title>Flipmart premium Template</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="{{asset('contents/website')}}/css/bootstrap.min.css">
@@ -45,7 +45,7 @@
         <div class="cnt-account">
           <ul class="list-unstyled">
             <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-            <li><a href="{{ route('wishlist.index') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+            <li><a href="{{ route('wishlist.index')}}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
             <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>

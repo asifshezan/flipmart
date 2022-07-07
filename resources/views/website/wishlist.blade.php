@@ -24,15 +24,14 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @forelse ($wishlists as $wishlist)
                             @php
-                                $products = App\Models\Product::where('product_id',$wishlist->product_id)->get();
+                                $products = App\Models\Product::where('product_id' , $wishlist->product_id)->get();
                             @endphp
 
                             @foreach ($products as $product)
                             <tr>
-                                <td class="col-md-2"><img src="{{ asset('uploads/product/'.$product->product_image) }}" alt="imga"></td>
+                                <td class="col-md-2"><img src="{{ asset('uploads/product/' . $product->product_image) }}" alt="imga"></td>
                                 <td class="col-md-7">
                                     <div class="product-name"><a href="#">{{ $product->product_name }}</a></div>
                                     <div class="rating">
@@ -52,7 +51,7 @@
                                     <a href="#" class="btn-upper btn btn-primary">Add to cart</a>
                                 </td>
                                 <td class="col-md-1 close-btn">
-                                    <a href="{{ route('wishlist.destroy',$product->product_slug) }}" class=""><i class="fa fa-times"></i></a>
+                                    <a href="{{ route('wishlist.delete',$product->product_slug) }}" class=""><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -62,31 +61,6 @@
                                 <td class="text-center"><h3>Wishlist Empty ...</h3></td>
                             </tr>
                             @endforelse
-
-                            {{-- <tr>
-                                <td class="col-md-2"><img src="{{ asset('frontend') }}/images/products/p2.jpg" alt="photo"></td>
-                                <td class="col-md-7">
-                                    <div class="product-name"><a href="#">Floral Print Buttoned</a></div>
-                                    <div class="rating">
-                                        <i class="fa fa-star rate"></i>
-                                        <i class="fa fa-star rate"></i>
-                                        <i class="fa fa-star rate"></i>
-                                        <i class="fa fa-star rate"></i>
-                                        <i class="fa fa-star non-rate"></i>
-                                        <span class="review">( 06 Reviews )</span>
-                                    </div>
-                                    <div class="price">
-                                        $450.00
-                                        <span>$900.00</span>
-                                    </div>
-                                </td>
-                                <td class="col-md-2">
-                                    <a href="#" class="btn-upper btn btn-default">Add to cart</a>
-                                </td>
-                                <td class="col-md-1 close-btn">
-                                    <a href="#" class=""><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -94,6 +68,5 @@
         </div>
         <!-- /.row -->
     </div>
-
 </div>
 @endsection
