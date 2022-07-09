@@ -10,7 +10,6 @@ use App\Models\SocialInfo;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\ImageManagerStatic as Image;
-use Illuminate\Support\Str;
 
 class ManageController extends Controller
 {
