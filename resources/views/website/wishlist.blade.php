@@ -12,14 +12,14 @@
         </div><!-- /.container -->
     </div><!-- /.breadcrumb -->
 
-    <div class="my-wishlist-page">
+    <div>
         <div class="row">
             <div class="col-md-12 my-wishlist">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" cellspacing="10">
                         <thead>
                             <tr>
-                                <th colspan="4" class="heading-title">My Wishlist</th>
+                                <th class="heading-title">My Wishlist</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,23 +31,24 @@
 
                             @foreach ($products as $product)
                             <tr>
-                                <td class="col-md-2"><img src="{{ asset('backend/uploads/product/'.$product->product_image) }}" alt="imga"></td>
-                                <td class="col-md-7">
+                                <td><img style="height: 200px;" src="{{ asset('uploads/product/'.$product->product_image) }}" alt="image"></td>
+                                <td>
                                     <div class="product-name"><a href="#">{{ $product->product_name }}</a></div>
                                     <div class="rating">
                                         <i class="fa fa-star rate"></i>
                                         <i class="fa fa-star rate"></i>
                                         <i class="fa fa-star rate"></i>
                                         <i class="fa fa-star rate"></i>
-                                        <i class="fa fa-star non-rate"></i>
+                                        <i class="fa fa-star-half-stroke"></i><br>
                                         <span class="review">( 06 Reviews )</span>
                                     </div>
                                     <div class="price">
-                                        ${{ $product->product_discount_price }}
+                                        ${{ $product->product_discount_price }}<br>
+
                                         <span>${{ $product->product_price }}</span>
                                     </div>
                                 </td>
-                                <td class="col-md-2">
+                                <td>
                                     <a href="#" class="btn-upper btn btn-primary">Add to cart</a>
                                 </td>
                                 <td class="col-md-1 close-btn">
@@ -68,5 +69,8 @@
         </div>
         <!-- /.row -->
     </div>
+</div>
+</div>
+</div>
 </div>
 @endsection
