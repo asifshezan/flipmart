@@ -390,6 +390,7 @@
 
         @yield('content')
 
+
 <!-- ============================================================= FOOTER ============================================================= -->
 <footer id="footer" class="footer color-bg">
   <div class="footer-bottom">
@@ -415,7 +416,7 @@
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
-                  <p>+(888){{ $contacts -> cont_phone1}}<br>+(888){{ $contacts -> cont_phone2}}</p>
+                  <p>+(88) {{ $contacts -> cont_phone1}}<br>+(88) {{ $contacts -> cont_phone2}}</p>
 
                 </div>
               </li>
