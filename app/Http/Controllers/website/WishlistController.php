@@ -46,11 +46,11 @@ class WishlistController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function insert(Request $request, $slug)
+    public function store(Request $request, $slug)
     {
-
+        // dd($request->all());
         if (Auth::check()) {
-            $product = Product::where('product_status', 1)->where('product_slug', $slug)->first();
+            $product = Product::where('product_status', 1)->where('product_slug', $slug)->firstOrFail();
             $wishlist = new Wishlist();
             $wishlist->user_id = Auth::user()->id;
             $wishlist->product_id = $product->product_id;

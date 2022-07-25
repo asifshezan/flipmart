@@ -69,8 +69,10 @@
         </div>
         <!-- /.row -->
     </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
+    </div></div>
+                </div>
+                    </div>
 @endsection
