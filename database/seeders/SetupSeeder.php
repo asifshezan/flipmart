@@ -11,6 +11,8 @@ class SetupSeeder extends Seeder
     /**
      * Run the database seeds.
      *
+     * // php artisan db:seed --class=SetupSeeder
+     *
      * @return void
      */
     public function run()
