@@ -92,8 +92,8 @@ class UserController extends Controller
         }
     }
 
-    public function softdelete($slug){
-        $soft = User::where('status',1)->where('slug',$slug)->update([
+    public function softdelete($id){
+        $soft = User::where('status',1)->where('id',$id)->update([
             'status' => 0,
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);

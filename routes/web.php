@@ -28,7 +28,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
         Route::get('/show/{id}', [ UserController::class, 'show'])->name('user.show');
         Route::get('/edit/{id}', [ UserController::class, 'edit'])->name('user.edit');
         Route::put('/update/{slug}', [ UserController::class, 'update'])->name('user.update');
-        Route::get('/softdelete/{slug}',[ UserController::class, 'softdelete' ])->name('user.softdelete');
+        Route::get('/softdelete/{id}',[ UserController::class, 'softdelete' ])->name('user.softdelete');
         Route::get('/delete/{slug}',[ UserController::class, 'destroy' ])->name('user.destroy');
         Route::get('/suspend/{slug}',[ UserController::class, 'suspend' ])->name('user.suspend');
     });

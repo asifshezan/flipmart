@@ -70,9 +70,9 @@
                                                         class=" bx bx-edit-alt label-icon"></i> Edit</a>
                                             </li>
                                             <li>
-                                                <a href="#"
+                                                <a href="{{ route('user.softdelete', $data->id)}}"
                                                 class="dropdown-item"><i
-                                                        class=" bx bxs-trash-alt label-icon"></i> Delete</a>
+                                                        class="bx bxs-trash-alt label-icon"></i> Delete</a>
                                             </li>
                                             <li class="">
                                                 <a href="#" class="dropdown-item bg-danger text-light"><i
@@ -83,7 +83,7 @@
                                 </td>
                             </tr>
                             {{-- Delete Modal --}}
-                            <div class="modal fade" id="softDeleteModal{{ $data->slug }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal fade" id="softDeleteModal{{ $data->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form method="post" action="">
                                     @csrf
@@ -96,7 +96,7 @@
                                         <input type="hidden" name="modal_id" id="modal_id">
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="#" class="btn btn-dark">Confirm</a>
+                                        <a href="{{ route('user.softdelete', $data->id)}}" class="btn btn-dark">Confirm</a>
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                     </div>
                                     </div>
