@@ -13,10 +13,9 @@
     <div class="col-12">
         <div class="card border border-primary">
             <div class="card-header bg-transparent border-primary d-flex justify-content-between">
-                <h5 class="my-0 text-primary align-middle"><i class="mdi mdi-bullseye-arrow me-3"></i>All coupons </h5>
-                <a href="{{ route('coupon.create') }}" class="btn btn-sm btn-primary waves-effect waves-light">
-                    <i class="bx bx-list-plus font-size-20 align-middle me-2"></i> Create coupon
-                </a>
+                <h5 class="my-0 text-primary align-middle"><i class="mdi mdi-bullseye-arrow me-3"></i>All Coupons </h5>
+                <a href="{{ route('coupon.new') }}" class="btn btn-sm btn-primary waves-effect waves-light">
+                    <i class="bx bx-list-plus font-size-20 align-middle me-2"></i> Create Coupon</a>
             </div>
             <div class="card-body">
                 <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
@@ -44,15 +43,15 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
                                         <li>
-                                            <a class="dropdown-item" href="{{ route('coupon.show',$data->coupon_slug) }}"
-                                            <i class="dripicons-eye"></i>view</a>
+                                            <a class="dropdown-item" href="#"
+                                            class="dripicons-eye"></>view</a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="{{ route('coupon.edit',$data->coupon_slug) }}">
-                                                <i class="bx bx-edit-alt"></i>Edite</a>
+                                                <i class="bx bx-edit-alt"></i>Edit</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item  btn-link delete-modal" href="#"
+                                            <a class="dropdown-item  btn-link delete-modal" href="{{ route('coupon.softdelete',$data->coupon_slug) }}"
                                                 data-bs-toggle="modal" data-value="" data-bs-target="#deleteModal{{ $data->coupon_slug }}"> <i
                                                     class="dripicons-trash"></i> Delete</a>
                                         </li>

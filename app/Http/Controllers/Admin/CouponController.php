@@ -23,8 +23,8 @@ class CouponController extends Controller
         return view('admin.coupon.index', compact('coupons'));
     }
 
-    public function create(){
-        return view('admin.coupon.create');
+    public function new(){
+        return view('admin.coupon.new');
     }
 
     public function store(Request $request){
@@ -52,6 +52,25 @@ class CouponController extends Controller
             return redirect()->back();
         }else{
             Session::flash('error','Opps!');
+            return redirect()->back();
+        }
+    }
+
+    public function edit($slug){
+        $coupon = Coupon::where('coupon_status',1)->where('coupon_slug',$slug)->firstOrFail();
+        return view('admin.coupon.edit', compact('coupon'));
+    }
+
+    public function softdelete($slug){
+        $coupons = Coupon::where('coupon_status',1)->where('coupon_slug',$slug)->update([
+            'coupon_status' => 0
+        ]);
+
+        if($coupons){
+            Session::flash('success', 'sucess');
+            return redirect()->back();
+        }else{
+            Session::flash('error', 'error');
             return redirect()->back();
         }
     }

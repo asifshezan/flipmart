@@ -35,6 +35,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
 
     Route::group(['prefix' => 'coupon'], function(){
         Route::get('/', [CouponController::class, 'index'])->name('coupon.index');
+        Route::get('/new', [CouponController::class, 'new'])->name('coupon.new');
+        Route::post('/', [CouponController::class, 'store'])->name('coupon.store');
+        Route::get('/edit/{slug}', [CouponController::class, 'edit'])->name('coupon.edit');
+        Route::get('/softdelete/{slug}', [CouponController::class, 'softdelete'])->name('coupon.softdelete');
     });
 
 

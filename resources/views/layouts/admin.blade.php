@@ -404,8 +404,8 @@
                                     <span data-key="t-coupon">Coupons</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="#">All Coupon</a></li>
-                                    <li><a href="#">Add Coupon</a></li>
+                                    <li><a href="{{ route('coupon.index')}}">All Coupon</a></li>
+                                    <li><a href="{{ route('coupon.new')}}">Add Coupon</a></li>
                                 </ul>
                             </li>
 
