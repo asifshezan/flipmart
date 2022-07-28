@@ -60,15 +60,18 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <li>
-                                                <a href="{{ route('user.show',$data->slug) }}" class="dropdown-item"><i
+                                                <a href="{{ route('user.show', $data->id)}}"
+                                                class="dropdown-item"><i
                                                         class="bx bx-show-alt label-icon"></i> Show</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('user.edit',$data->slug) }}" class="dropdown-item"><i
+                                                <a href="{{ route('user.edit', $data->id)}}"
+                                                class="dropdown-item"><i
                                                         class=" bx bx-edit-alt label-icon"></i> Edit</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="dropdown-item" id="delete" data-bs-toggle="modal" data-bs-target="#softDeleteModal{{ $data->slug }}" data-id="#"><i
+                                                <a href="#"
+                                                class="dropdown-item"><i
                                                         class=" bx bxs-trash-alt label-icon"></i> Delete</a>
                                             </li>
                                             <li class="">
@@ -93,7 +96,7 @@
                                         <input type="hidden" name="modal_id" id="modal_id">
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="{{ route('user.softdelete',$data->slug) }}" class="btn btn-dark">Confirm</a>
+                                        <a href="#" class="btn btn-dark">Confirm</a>
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                     </div>
                                     </div>

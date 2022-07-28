@@ -60,13 +60,13 @@ class UserController extends Controller
         }
     }
 
-    public function show($slug){
-        $data =  User::where('status',1)->where('slug',$slug)->firstOrFail();
+    public function show($id){
+        $data =  User::where('status',1)->where('id',$id)->firstOrFail();
         return view('admin.user.show', compact('data'));
     }
 
-    public function edit($slug){
-        $data = User::where('status',1)->where('slug',$slug)->firstOrFail();
+    public function edit($id){
+        $data = User::where('status',1)->where('id',$id)->firstOrFail();
         return view('admin.user.edit', compact('data'));
     }
 
@@ -78,6 +78,7 @@ class UserController extends Controller
             'email' => $request['email'],
             'phone' => $request['phone'],
             'role' => $request['role'],
+            'slug' => Str::slug($request->name, '-'),
             'address' => $request['address'],
             'updated_at' => Carbon::now()->toDateString()
         ]);

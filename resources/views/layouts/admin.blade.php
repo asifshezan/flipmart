@@ -404,8 +404,8 @@
                                     <span data-key="t-coupon">Coupons</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('coupon.index') }}">All Coupon</a></li>
-                                    <li><a href="{{ route('coupon.create') }}">Add Coupon</a></li>
+                                    <li><a href="#">All Coupon</a></li>
+                                    <li><a href="#">Add Coupon</a></li>
                                 </ul>
                             </li>
 
@@ -416,7 +416,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                        <a href="{{ route('basic.index') }}">
+                                        <a href="#">
                                             <i data-feather="tool"></i>
                                             <span data-key="t-basic">Basic Setting</span>
                                         </a>

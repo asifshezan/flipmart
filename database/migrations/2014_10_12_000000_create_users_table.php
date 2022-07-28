@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('role')->default(5);
             $table->text('address')->nullable();
+            $table->string('slug');
             $table->integer('status')->default(1);
             $table->rememberToken();
             $table->timestamps();

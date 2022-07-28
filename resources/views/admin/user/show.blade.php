@@ -61,7 +61,6 @@
                                         <div class="badge badge-soft-danger font-size-12">Disabled</div>
                                         @endif
                                     </td>
-
                                 </tr>
                                 <tr>
                                     <th>Address :</th>
