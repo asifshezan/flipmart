@@ -416,7 +416,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('basic.index')}}">
                                             <i data-feather="tool"></i>
                                             <span data-key="t-basic">Basic Setting</span>
                                         </a>
