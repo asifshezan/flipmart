@@ -116,6 +116,13 @@
             </div><!-- end card body -->
         </div><!-- end card -->
     </div><!-- end col -->
+
+    <h1>Hello {{ auth()->user()->name}}</h1>
+    <h2>You are a {{ auth()->user()->roles[0]->name  }}</h2>
+    @if (auth()->user()->HasRole(['Super Admin'])  ||  auth()->user()->HasRole('User'))
+        <h2>Only Super Admin can handle everything.</h2>
+    @endif
+
 </div><!-- end row-->
 
 @endsection
