@@ -44,7 +44,11 @@
                                 <td>{{ $data['name'] }}</td>
                                 <td>{{ $data['email'] }}</td>
                                 <td>{{ $data['phone'] }}</td>
-                                <td>{{ $data['role'] }}</td>
+                                <td>
+                                    @foreach ($data->roles as $role)
+                                    <span class="badge badge-soft-primary">{{ $role->name }}</span>
+                                @endforeach
+                                </td>
                                 <td>
                                     @if ($data->status == 1)
                                     <div class="badge badge-soft-success font-size-12">Active</div>
