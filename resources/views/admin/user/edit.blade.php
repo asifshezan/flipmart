@@ -5,7 +5,6 @@
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
             <h4 class="mb-sm-0 font-size-18">Users</h4>
-
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">User</a></li>
@@ -57,9 +56,9 @@
                                 <label for="role">Role</label>
                                 <select class="form-select" name="role">
                                     <option disabled selected>Select Role</option>
-                                    <option value="1" {{ $data['role'] == '1' ? 'selected' : '' }}>Admin</option>
-                                    <option value="2" {{ $data['role'] == '2' ? 'selected' : '' }}>Subscriber</option>
-                                    <option value="3" {{ $data['role'] == '3' ? 'selected' : '' }}>Staff</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{ $role->name }}" {{ $role->name == $data->roles[0]->name ? 'selected' : ''}}>{{ $role->name }}</option>
+                                    @endforeach
                                 </select>
                                 @error('role')
                                     <span class="text-danger">{{ $message }}</span>

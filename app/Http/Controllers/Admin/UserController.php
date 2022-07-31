@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Role;
+// use App\Models\Role;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Spatie\Permission\Models\Role as ModelsRole;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -26,7 +26,7 @@ class UserController extends Controller
     }
 
     public function create(){
-        $roles = ModelsRole::all();
+        $roles = Role::all();
         return view('admin.user.create', compact('roles'));
     }
 
@@ -36,7 +36,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:255', 'unique:users'],
-            'role' => 'required',
+            'role' => ['required'],
         ],[
             'name.required' => 'please enter your name.',
             'phone.required' => 'please enter your phone number.',
@@ -69,12 +69,14 @@ class UserController extends Controller
     }
 
     public function edit($id){
+        $roles = Role::all();
         $data = User::where('status',1)->where('id',$id)->firstOrFail();
-        return view('admin.user.edit', compact('data'));
+        return view('admin.user.edit', compact('data', 'roles'));
     }
 
     public function update(Request $request){
         $id = $request['id'];
+        // $update->syncRoles($request['role']);
 
         $update = User::where('id',$id)->update([
             'name' => $request['name'],
