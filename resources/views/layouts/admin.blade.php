@@ -357,6 +357,12 @@
                                             <span data-key="t-social">Social Information</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('permission')}}">
+                                            <i class="mdi mdi-chat-processing"></i>
+                                            <span data-key="t-permission">Permission</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>

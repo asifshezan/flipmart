@@ -110,6 +110,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/social-media',[ ManageController::class, 'social_index' ])->name('manage.social.index');
     Route::post('/social-media',[ ManageController::class, 'socail_update' ])->name('manage.social.update');
 
+    Route::get('/permission',[ ManageController::class, 'permission' ])->name('permission');
+    Route::get('/permission/edit/{role_id}',[ ManageController::class, 'editPermission' ])->name('permission.edit');
+    Route::get('/permission/update/{role_id}',[ ManageController::class, 'updatePermission' ])->name('permission.update');
+
+
+
 
     Route::group(['prefix' => 'category'], function(){
         Route::get('/', [CategoryController::class, 'index'])->name('category.index');

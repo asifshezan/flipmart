@@ -8,6 +8,8 @@ use App\Models\BasicSetting;
 use App\Models\ContactInfo;
 use App\Models\SocialInfo;
 use Illuminate\Support\Carbon;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -128,6 +130,24 @@ class ManageController extends Controller
 
         }
 
+    }
+
+    public function permission()
+    {
+        $roles = Role::all();
+        return view('admin.settings.permission', compact('roles'));
+    }
+
+    public function editPermission($role_id)
+    {
+        $role = Role::findOrFail($role_id);
+        $permissions = Permission::all();
+        return view('admin.settings.permission-edit', compact('role', 'permissions'));
+    }
+
+    public function updatePermission($role_id)
+    {
+        # code...
     }
 
 }
