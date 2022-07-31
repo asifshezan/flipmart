@@ -55,9 +55,9 @@
                                 <label for="role">Role</label>
                                 <select class="form-select" name="role">
                                     <option disabled selected>Select Role</option>
-                                    <option value="1" {{ old('role') == '1' ? 'selected' : '' }}>Admin</option>
-                                    <option value="2" {{ old('role') == '2' ? 'selected' : '' }}>Subscriber</option>
-                                    <option value="3" {{ old('role') == '3' ? 'selected' : '' }}>Staff</option>
+                                    @foreach ($roles as $role)
+                                    <option value= {{ $role->id }}>{{ $role->name }}</option>
+                                    @endforeach
                                 </select>
                                 @error('role')
                                     <span class="text-danger">{{ $message }}</span>

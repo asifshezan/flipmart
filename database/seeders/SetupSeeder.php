@@ -19,10 +19,10 @@ class SetupSeeder extends Seeder
      */
     public function run()
     {
-        // $roles = ['Super Admin', 'Admin', 'Editor', 'User'];
-        // foreach($roles as $role){
-        //     Role::create(['name' => $role]);
-        // }
+        $roles = ['Super Admin', 'Admin', 'Editor', 'User'];
+        foreach($roles as $role){
+            Role::create(['name' => $role]);
+        }
 
 
         $permissions = ['create user', 'view user', 'edit user', 'delete user'];
