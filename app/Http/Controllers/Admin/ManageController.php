@@ -147,7 +147,10 @@ class ManageController extends Controller
 
     public function updatePermission(Request $request, $role_id)
     {
-        dd($request);
+        // dd($request);
+        $role = Role::findOrFail($role_id);
+        $role -> syncPermissions($request->permission);
+        return back();
     }
 
 }
