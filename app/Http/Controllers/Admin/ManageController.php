@@ -145,9 +145,9 @@ class ManageController extends Controller
         return view('admin.settings.permission-edit', compact('role', 'permissions'));
     }
 
-    public function updatePermission($role_id)
+    public function updatePermission(Request $request, $role_id)
     {
-        # code...
+        dd($request);
     }
 
 }

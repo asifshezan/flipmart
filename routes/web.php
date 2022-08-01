@@ -112,7 +112,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
 
     Route::get('/permission',[ ManageController::class, 'permission' ])->name('permission');
     Route::get('/permission/edit/{role_id}',[ ManageController::class, 'editPermission' ])->name('permission.edit');
-    Route::get('/permission/update/{role_id}',[ ManageController::class, 'updatePermission' ])->name('permission.update');
+    Route::put('/permission/update/{role_id}',[ ManageController::class, 'updatePermission' ])->name('permission.update');
 
 
 
