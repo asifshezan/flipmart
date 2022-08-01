@@ -150,7 +150,7 @@ class ManageController extends Controller
         // dd($request);
         $role = Role::findOrFail($role_id);
         $role -> syncPermissions($request->permission);
-        return back();
+        return redirect()->route('permission');
     }
 
 }

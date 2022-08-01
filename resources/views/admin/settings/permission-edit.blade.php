@@ -31,7 +31,7 @@
                         <div class="row form-group">
                             @foreach ($permissions as $k => $permission)
                                 <div class="form-check form-switch form-switch-md mb-3" dir="ltr">
-                                    <input value="{{ $permission->name }}" name="permission[]" type="checkbox" class="form-check-input" id="{{ str()->slug($permission->name, '-').$k }}">
+                                    <input {{ $role->hasPermissionTo($permission->name) ? 'checked' : ''}} value="{{ $permission->name }}" name="permission[]" type="checkbox" class="form-check-input" id="{{ str()->slug($permission->name, '-').$k }}">
                                     <label class="form-check-label text-capitalize" for="{{ str()->slug($permission->name, '-').$k }}">{{ $permission->name }}</label>
                                 </div>
                             @endforeach
