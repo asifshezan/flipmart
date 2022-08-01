@@ -27,15 +27,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard.index');
 
     Route::group(['prefix' => 'user'], function (){
-        Route::get('/', [ UserController::class, 'index'])->name('user.index');
-        Route::get('/create', [ UserController::class, 'create'])->name('user.create');
-        Route::post('/', [ UserController::class, 'store'])->name('user.store');
-        Route::get('/show/{id}', [ UserController::class, 'show'])->name('user.show');
-        Route::get('/edit/{id}', [ UserController::class, 'edit'])->name('user.edit');
-        Route::put('/update/{slug}', [ UserController::class, 'update'])->name('user.update');
-        Route::get('/softdelete/{id}',[ UserController::class, 'softdelete' ])->name('user.softdelete');
-        Route::get('/delete/{slug}',[ UserController::class, 'destroy' ])->name('user.destroy');
-        Route::get('/suspend/{slug}',[ UserController::class, 'suspend' ])->name('user.suspend');
+        Route::get('/', [ UserController::class, 'index'])->name('user.index')->middleware(['role_or_permission:view user']);
+        Route::get('/create', [ UserController::class, 'create'])->name('user.create')->middleware(['role_or_permission:create user']);
+        Route::post('/', [ UserController::class, 'store'])->name('user.store')->middleware(['role_or_permission:create user']);
+        Route::get('/show/{id}', [ UserController::class, 'show'])->name('user.show')->middleware(['role_or_permission:view user']);
+        Route::get('/edit/{id}', [ UserController::class, 'edit'])->name('user.edit')->middleware(['role_or_permission:edit user']);
+        Route::put('/update/{slug}', [ UserController::class, 'update'])->name('user.update')->middleware(['role_or_permission:edit user']);
+        Route::get('/softdelete/{id}',[ UserController::class, 'softdelete' ])->name('user.softdelete')->middleware(['role_or_permission:delete user']);
+        Route::get('/delete/{slug}',[ UserController::class, 'destroy' ])->name('user.destroy')->middleware(['role_or_permission:delete user']);
+        Route::get('/suspend/{slug}',[ UserController::class, 'suspend' ])->name('user.suspend')->middleware(['role_or_permission:delete user']);
     });
 
     Route::group(['prefix' => 'coupon'], function(){
