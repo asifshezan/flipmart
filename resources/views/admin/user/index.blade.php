@@ -65,18 +65,18 @@
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <li>
                                                 <a href="{{ route('user.show', $data->id)}}"
-                                                class="dropdown-item"><i
-                                                        class="bx bx-show-alt label-icon"></i> Show</a>
+                                                class="dropdown-item"><i class="bx bx-show-alt label-icon"></i> Show</a>
                                             </li>
+                                            @can('edit user')
                                             <li>
                                                 <a href="{{ route('user.edit', $data->id)}}"
-                                                class="dropdown-item"><i
-                                                        class=" bx bx-edit-alt label-icon"></i> Edit</a>
+                                                class="dropdown-item"><i class=" bx bx-edit-alt label-icon"></i> Edit</a>
                                             </li>
+                                            @endcan
+
                                             <li>
                                                 <a href="{{ route('user.softdelete', $data->id)}}"
-                                                class="dropdown-item"><i
-                                                        class="bx bxs-trash-alt label-icon"></i> Delete</a>
+                                                class="dropdown-item"><i class="bx bxs-trash-alt label-icon"></i> Delete</a>
                                             </li>
                                             <li class="">
                                                 <a href="#" class="dropdown-item bg-danger text-light"><i

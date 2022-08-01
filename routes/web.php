@@ -27,7 +27,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard.index');
 
     Route::group(['prefix' => 'user'], function (){
-        Route::get('/', [ UserController::class, 'index'])->name('user.index')->middleware(['role_or_permission:view user']);
+        Route::get('/', [ UserController::class, 'index'])->name('user.index')->middleware(['role_or_permission:view user|Super Admin|create user']);
         Route::get('/create', [ UserController::class, 'create'])->name('user.create')->middleware(['role_or_permission:create user']);
         Route::post('/', [ UserController::class, 'store'])->name('user.store')->middleware(['role_or_permission:create user']);
         Route::get('/show/{id}', [ UserController::class, 'show'])->name('user.show')->middleware(['role_or_permission:view user']);
@@ -110,7 +110,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/social-media',[ ManageController::class, 'social_index' ])->name('manage.social.index');
     Route::post('/social-media',[ ManageController::class, 'socail_update' ])->name('manage.social.update');
 
-    Route::get('/permission',[ ManageController::class, 'permission' ])->name('permission');
+    Route::get('/permission',[ ManageController::class, 'permission' ])->name('permission')->middleware(['role_or_permission:view user|Super Admin|create user']);
     Route::get('/permission/edit/{role_id}',[ ManageController::class, 'editPermission' ])->name('permission.edit');
     Route::put('/permission/update/{role_id}',[ ManageController::class, 'updatePermission' ])->name('permission.update');
 
