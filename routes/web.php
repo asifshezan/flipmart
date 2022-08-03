@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\website\WebsiteController;
+use App\Http\Controllers\website\WishlistController;
+use App\Http\Controllers\website\CartController;
+
+
+
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PartnerController;
@@ -12,7 +17,6 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\website\WishlistController;
 
 Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 
@@ -21,6 +25,8 @@ Route::group(['prefix' => 'wishlist', 'middleware' => 'auth'], function(){
     Route::get('/store/{slug}', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::get('/delete/{slug}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 });
+
+
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
