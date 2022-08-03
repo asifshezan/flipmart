@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
+use Darryldecode\Cart\CartCondition;
 
 Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 
@@ -24,6 +25,12 @@ Route::group(['prefix' => 'wishlist', 'middleware' => 'auth'], function(){
     Route::get('/', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::get('/store/{slug}', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::get('/delete/{slug}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+});
+
+Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function(){
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/{slug}', [CartController::class, 'store'])->name('cart.store');
+    Route::get('/delete/{slug}', [CartController::class, 'delete'])->name('cart.delete');
 });
 
 
