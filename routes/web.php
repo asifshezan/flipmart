@@ -30,7 +30,7 @@ Route::group(['prefix' => 'wishlist', 'middleware' => 'auth'], function(){
 Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function(){
     Route::get('/', [CartController::class, 'index'])->name('cart.index');
     Route::get('/{slug}', [CartController::class, 'store'])->name('cart.store');
-    Route::get('/delete/{slug}', [CartController::class, 'delete'])->name('cart.delete');
+    Route::get('/delete/{slug}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 
 
