@@ -22,7 +22,7 @@ class CartController extends Controller
 
     public function store($slug){
         $product = Product::where('product_status', 1)->where('product_slug', $slug)->firstOrFail();
-        Cart::add([
+        \Cart::add([
             'id' => $product->product_id,
             'name' => $product->product_name,
             'price' => $product->product_price,
