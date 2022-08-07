@@ -151,16 +151,30 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $couponcount = Cart::getConditions()->count();
+                    $coupon = Cart::getConditions()->first();
+                @endphp
+                <form action="{{ route('cart.coupon.apply') }}" method="POST">
+                    @csrf
                     <tr>
                         <td>
                             <div class="form-group">
-                                <input type="text" class="form-control unicase-form-control text-input" placeholder="You Coupon..">
+                                <input name="coupon_code" type="text" class="form-control unicase-form-control text-input"
+                                    placeholder="You Coupon..">
+                                @if($couponcount > 0)
+                                <span class="text-danger">Coupon Code Apply Success <a href="{{ route('cart.coupon.remove') }}" title="cancel" class="icon text-danger">
+                                    <i class="fa fa-times"></i></a> </span>
+                                    @endif
+                                    <input name="user_id" type="hidden" value="@auth {{ auth()->user()->id }} @endauth">
                             </div>
                             <div class="clearfix pull-right">
                                 <button type="submit" class="btn-upper btn btn-primary">APPLY COUPON</button>
                             </div>
                         </td>
                     </tr>
+                </form>
+
             </tbody><!-- /tbody -->
         </table><!-- /table -->
     </div><!-- /.estimate-ship-tax -->

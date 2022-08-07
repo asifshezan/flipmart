@@ -42,4 +42,36 @@ class CartController extends Controller
         }
         return redirect()->back();
     }
+
+
+    public function coupon_apply(Request $request){
+        $coupon = Coupon::where('coupon_status',1)->where('coupon_code', $request->coupon_code)->first();
+
+        if($coupon){
+            if($coupon->coupon_ending >= date('Y-m-d', strtotime(Carbon::now()))){
+                Cart::clearCartConditions();
+                $condition = new CartCondition(array(
+                    'name' => $coupon->coupon_title,
+                    'type' => 'coupon',
+                    'target' => 'total',
+                    'value' => -$coupon->coupon_amount,
+                    'attributes' => array(
+                        'user_id' => $request->user_id
+                    )
+                ));
+                Cart::condition($condition);
+                $condition_data = Cart::getConditions();
+                return redirect()->back()->with('success', 'Coupon code applied successfully.', compact('condition_data'));
+            }else{
+                return 'Coupon card Expired.';
+            }
+        }else{
+            return "Coupon code is not valid";
+        }
+    }
+
+    public function coupon_remove(){
+        Cart::clearCartConditions();
+        return redirect()->back();
+    }
 }
