@@ -35,7 +35,7 @@
                         <td colspan="7">
                             <div class="shopping-cart-btn">
                                 <span class="">
-                                    <a href="#" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
+                                    <a href="{{ route('website.home')}}" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
                                     <a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
                                 </span>
                             </div><!-- /.shopping-cart-btn -->
@@ -43,15 +43,18 @@
                     </tr>
                 </tfoot>
                 <tbody>
+
+                    @forelse ($allcart as $cart)
+
                     <tr>
-                        <td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
+                        <td class="romove-item"><a href="{{ route('cart.destroy',$cart->id) }}" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
                         <td class="cart-image">
                             <a class="entry-thumbnail" href="detail.html">
-                                <img src="assets/images/products/p1.jpg" alt="">
+                                <img src="{{ asset('uploads/product/'.$cart->attributes->product_image)}}" alt="">
                             </a>
                         </td>
                         <td class="cart-product-name-info">
-                            <h4 class='cart-product-description'><a href="detail.html">Floral Print Buttoned</a></h4>
+                            <h4 class='cart-product-description'><a href="detail.html">{{ $cart->name }}</a></h4>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="rating rateit-small"></div>
@@ -73,54 +76,23 @@
                                       <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
                                       <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
                                     </div>
-                                    <input type="text" value="1">
+                                    <input type="number" value="{{ $cart->quantity }}">
                               </div>
                         </td>
-                        <td class="cart-product-sub-total"><span class="cart-sub-total-price">$300.00</span></td>
-                        <td class="cart-product-grand-total"><span class="cart-grand-total-price">$300.00</span></td>
+                        <td class="cart-product-sub-total"><span class="cart-sub-total-price">$ {{ $cart->price }}</span></td>
+                        <td class="cart-product-grand-total"><span class="cart-grand-total-price">$ {{ $cart->getPriceSum() }}</span></td>
                     </tr>
+
+                    @empty
                     <tr>
-                        <td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
-                        <td class="cart-image">
-                            <a class="entry-thumbnail" href="detail.html">
-                                <img src="assets/images/products/p2.jpg" alt="">
-                            </a>
-                        </td>
-                        <td class="cart-product-name-info">
-                            <h4 class='cart-product-description'><a href="detail.html">Floral Print Buttoned</a></h4>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="rating rateit-small"></div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="reviews">
-                                        (06 Reviews)
-                                    </div>
-                                </div>
-                            </div><!-- /.row -->
-                            <div class="cart-product-info">
-                            <span class="product-color">COLOR:<span>Pink</span></span>
-                            </div>
-                        </td>
-                        <td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
-                        <td class="cart-product-quantity">
-                            <div class="cart-quantity">
-                                <div class="quant-input">
-                                    <div class="arrows">
-                                      <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                      <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-                                    </div>
-                                    <input type="text" value="1">
-                              </div>
-                            </div>
-                        </td>
-                        <td class="cart-product-sub-total"><span class="cart-sub-total-price">$300.00</span></td>
-                        <td class="cart-product-grand-total"><span class="cart-grand-total-price">$300.00</span></td>
+                        No Product in Cart
                     </tr>
+                    @endforelse
                 </tbody><!-- /tbody -->
             </table><!-- /table -->
         </div>
-    </div><!-- /.shopping-cart-table -->				<div class="col-md-4 col-sm-12 estimate-ship-tax">
+    </div><!-- /.shopping-cart-table -->
+    <div class="col-md-4 col-sm-12 estimate-ship-tax">
         <table class="table">
             <thead>
                 <tr>

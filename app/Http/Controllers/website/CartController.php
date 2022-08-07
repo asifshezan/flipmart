@@ -26,12 +26,20 @@ class CartController extends Controller
         Cart::add([
             'id' => $product->product_id,
             'name' => $product->product_name,
-            'price' => $product->product_price,
+            'price' => $product->product_discount_price,
             'quantity' => 1,
             'attributes' => [
                 'product_image' => $product->product_image
             ]
         ]);
+        return redirect()->back();
+    }
+
+    public function destroy($id){
+        $cart_remove = Cart::remove($id);
+        if($cart_remove)    {
+            Cart::clearCartConditions();
+        }
         return redirect()->back();
     }
 }
