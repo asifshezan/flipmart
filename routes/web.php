@@ -39,6 +39,28 @@ Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function(){
 
 
 
+// Google Login
+
+Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+// facebook Login
+
+Route::get('login/facebook', [LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
+// Twitter Login
+
+// Route::get('login/twitter', [LoginController::class, 'redirectToTwitter'])->name('login.twitter');
+// Route::get('login/twitter/callback', [LoginController::class, 'handleTwitterCallback']);
+// Github Login
+
+Route::get('login/github', [LoginController::class, 'redirectToGithub'])->name('login.github');
+Route::get('login/github/callback', [LoginController::class, 'handleGithubCallback']);
+
+
+
+
+
+
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard.index');
