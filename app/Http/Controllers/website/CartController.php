@@ -8,6 +8,8 @@ use App\Models\Coupon;
 use Darryldecode\Cart\CartCondition;
 use Illuminate\Http\Request;
 // use Darryldecode\Cart\Cart;
+use App\Models\Division;
+use App\Models\District;
 use Cart;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +19,9 @@ class CartController extends Controller
 {
     public function index(){
         $allcart = Cart::getContent();
-        return view('website.shopping_cart', compact('allcart'));
+        $country = Division::select('id','name')->get();
+        $city = District::select('id','name')->get();
+        return view('website.shopping_cart', compact('allcart', 'country', 'city'));
     }
 
 
@@ -73,5 +77,14 @@ class CartController extends Controller
     public function coupon_remove(){
         Cart::clearCartConditions();
         return redirect()->back();
+    }
+
+
+    public function city_list(Request $request){
+        $city_search = "";
+        foreach(City::where('country_id',$request->country_id)->select('id','name')->get() as $city){
+        $city_search = $city_search."<option value='".$city->id."'>$city->name</option>";
+        }
+        echo $city_search;
     }
 }

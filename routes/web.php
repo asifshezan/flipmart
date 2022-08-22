@@ -31,10 +31,9 @@ Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function(){
     Route::get('/', [CartController::class, 'index'])->name('cart.index');
     Route::get('/{slug}', [CartController::class, 'store'])->name('cart.store');
     Route::get('/delete/{slug}', [CartController::class, 'destroy'])->name('cart.destroy');
-
-
     Route::post('/coupon/apply', [CartController::class, 'coupon_apply'])->name('cart.coupon.apply');
     Route::get('/coupon/remove', [CartController::class, 'coupon_remove'])->name('cart.coupon.remove');
+    Route::post('get/city/list',[CartController::class, 'city_list']);
 });
 
 

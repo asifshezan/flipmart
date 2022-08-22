@@ -73,11 +73,11 @@
                         <td class="cart-product-quantity">
                             <div class="quant-input">
                                     <div class="arrows">
-                                      <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                      <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                    <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                                    <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
                                     </div>
                                     <input type="number" value="{{ $cart->quantity }}">
-                              </div>
+                            </div>
                         </td>
                         <td class="cart-product-sub-total"><span class="cart-sub-total-price">$ {{ $cart->price }}</span></td>
                         <td class="cart-product-grand-total"><span class="cart-grand-total-price">$ {{ $cart->getPriceSum() }}</span></td>
@@ -106,25 +106,23 @@
                     <tr>
                         <td>
                             <div class="form-group">
+
+
+
                                 <label class="info-title control-label">Country <span>*</span></label>
-                                <select class="form-control unicase-form-control selectpicker">
+                                <select class="form-control unicase-form-control selectpicker search">
+
                                     <option>--Select options--</option>
-                                    <option>India</option>
-                                    <option>SriLanka</option>
-                                    <option>united kingdom</option>
-                                    <option>saudi arabia</option>
-                                    <option>united arab emirates</option>
+                                    @foreach ($country as  $countries)
+                                    <option value="{{ $countries->id }}">{{ $countries->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="info-title control-label">State/Province <span>*</span></label>
-                                <select class="form-control unicase-form-control selectpicker">
+                                <select class="form-control unicase-form-control selectpicker city_search">
                                     <option>--Select options--</option>
-                                    <option>TamilNadu</option>
-                                    <option>Kerala</option>
-                                    <option>Andhra Pradesh</option>
-                                    <option>Karnataka</option>
-                                    <option>Madhya Pradesh</option>
+
                                 </select>
                             </div>
                             <div class="form-group">
@@ -209,13 +207,40 @@
         </table><!-- /table -->
     </div><!-- /.cart-shopping-total -->			</div><!-- /.shopping-cart -->
             </div> <!-- /.row -->
-            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-
-    <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
+</div><!-- /.container -->
     </div><!-- /.body-content -->
 </div>
 </div>
 </div>
 </div>
 
+@endsection
+
+@section('frontend_script')
+    <script>
+        $(document).ready(function() {
+    $('.search').select2();
+    $('.city_search').select2();
+
+    $('.search').change(function(){
+        var country_id = $(this).val();
+        $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+    $.ajax({
+        type:'POST',
+        url:'get/city/list',
+        data:{country_id:country_id},
+        success:function(data){
+            $('.city_search').html(data);
+        }
+    });
+    });
+});
+
+
+    </script>
 @endsection

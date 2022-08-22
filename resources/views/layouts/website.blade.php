@@ -5,6 +5,7 @@
 <head>
 <!-- Meta -->
 <meta charset="utf-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -23,6 +24,7 @@
 <link rel="stylesheet" href="{{asset('contents/website')}}/css/animate.min.css">
 <link rel="stylesheet" href="{{asset('contents/website')}}/css/rateit.css">
 <link rel="stylesheet" href="{{asset('contents/website')}}/css/bootstrap-select.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <!-- Icons/Glyphs -->
 <link rel="stylesheet" href="{{asset('contents/website')}}/css/font-awesome.css">
@@ -539,7 +541,11 @@
 <script type="text/javascript" src="{{asset('contents/website')}}/js/lightbox.min.js"></script>
 <script src="{{asset('contents/website')}}/js/bootstrap-select.min.js"></script>
 <script src="{{asset('contents/website')}}/js/wow.min.js"></script>
+@yield('frontend_script')
 <script src="{{asset('contents/website')}}/js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
 </body>
 
 <!-- Mirrored from www.themesground.com/flipmart-demo/HTML/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 May 2022 09:59:52 GMT -->
