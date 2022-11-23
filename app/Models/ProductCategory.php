@@ -9,7 +9,7 @@ class ProductCategory extends Model
 {
     use HasFactory;
 
-    public function  cat_parent(){
+    public function cat_parent(){
         return $this->belongsTo(ProductCategory::class, 'pro_cat_parent', 'pro_cat_id');
     }
 }

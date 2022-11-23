@@ -1,5 +1,6 @@
 @extends('layouts.website')
 @section('content')
+{{-- @dd(Cart::getContent()) --}}
 <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
     <div class="breadcrumb">
         <div class="container">
@@ -66,19 +67,20 @@
                                 </div>
                             </div><!-- /.row -->
                             <div class="cart-product-info">
-                                                <span class="product-color">COLOR:<span>Blue</span></span>
+                                <span class="product-color">COLOR:<span>Blue</span></span>
                             </div>
                         </td>
                         <td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
-                        <td class="cart-product-quantity">
-                            <div class="quant-input">
-                                    <div class="arrows">
-                                    <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                    <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-                                    </div>
-                                    <input type="number" value="{{ $cart->quantity }}">
-                            </div>
-                        </td>
+
+                        <td class="cart-product-edit">
+                            <form action="{{ route('cart.quantity.update') }}" method="POST">
+                                <input name="cart_id" type="hidden" value="{{ $cart->id }}">
+                                @csrf
+                                <input value="{{ $cart->quantity }}" type="number" name="quantity" style="width: 20%; height: 30px; margin-right: 10px;">
+                                <button type="submit" class="btn btn-sm btn-success" style="color: white;"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                            </form>
+                            </td>
+
                         <td class="cart-product-sub-total"><span class="cart-sub-total-price">$ {{ $cart->price }}</span></td>
                         <td class="cart-product-grand-total"><span class="cart-grand-total-price">$ {{ $cart->getPriceSum() }}</span></td>
                     </tr>
@@ -205,8 +207,9 @@
                     </tr>
             </tbody><!-- /tbody -->
         </table><!-- /table -->
-    </div><!-- /.cart-shopping-total -->			</div><!-- /.shopping-cart -->
-            </div> <!-- /.row -->
+    </div><!-- /.cart-shopping-total -->
+</div><!-- /.shopping-cart -->
+</div> <!-- /.row -->
 </div><!-- /.container -->
     </div><!-- /.body-content -->
 </div>
@@ -232,7 +235,7 @@
 
     $.ajax({
         type:'POST',
-        url:'get/city/list',
+        url: '/city/not/found',
         data:{country_id:country_id},
         success:function(data){
             $('.city_search').html(data);

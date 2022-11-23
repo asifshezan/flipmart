@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\Division;
 use App\Models\District;
 use Cart;
+use App\Models\City;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use function Sodium\Compare;
@@ -87,4 +88,17 @@ class CartController extends Controller
         }
         echo $city_search;
     }
+
+    public function quantityUpdate(Request $request)
+    {
+        Cart::add($request->cart_id, array(
+            'relative' => false,
+            'quantity' => $request->quantity,
+        ));
+        return redirect()->back();
+    }
+
+
+
+
 }
