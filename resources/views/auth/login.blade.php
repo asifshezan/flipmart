@@ -92,7 +92,7 @@
 
                                             <ul class="list-inline mb-0">
                                                 <li class="list-inline-item">
-                                                    <a href="{{ route('login.facebook')}}"
+                                                    <a href=""
                                                         class="social-list-item bg-primary text-white border-primary">
                                                         <i class="mdi mdi-facebook"></i>
                                                     </a>
@@ -104,13 +104,13 @@
                                                     </a>
                                                 </li> --}}
                                                 <li class="list-inline-item">
-                                                    <a href="{{ route('login.google')}}"
+                                                    <a href=""
                                                         class="social-list-item bg-danger text-white border-danger">
                                                         <i class="mdi mdi-google"></i>
                                                     </a>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <a href="{{ route('login.github')}}"
+                                                    <a href=""
                                                         class="social-list-item bg-dark text-white border-dark">
                                                         <i class="mdi mdi-github"></i>
                                                     </a>

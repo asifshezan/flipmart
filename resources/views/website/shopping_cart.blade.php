@@ -37,7 +37,7 @@
                             <div class="shopping-cart-btn">
                                 <span class="">
                                     <a href="{{ route('website.home')}}" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-                                    <a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
+                                    {{-- <a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a> --}}
                                 </span>
                             </div><!-- /.shopping-cart-btn -->
                         </td>
@@ -50,12 +50,12 @@
                     <tr>
                         <td class="romove-item"><a href="{{ route('cart.destroy',$cart->id) }}" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
                         <td class="cart-image">
-                            <a class="entry-thumbnail" href="detail.html">
+                            <a class="entry-thumbnail" href="#">
                                 <img src="{{ asset('uploads/product/'.$cart->attributes->product_image)}}" alt="">
                             </a>
                         </td>
                         <td class="cart-product-name-info">
-                            <h4 class='cart-product-description'><a href="detail.html">{{ $cart->name }}</a></h4>
+                            <h4 class='cart-product-description'><a href="#">{{ $cart->name }}</a></h4>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="rating rateit-small"></div>
@@ -73,7 +73,7 @@
                         <td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
 
                         <td class="cart-product-edit">
-                            <form action="{{ route('cart.quantity.update') }}" method="POST">
+                            <form action="{{ route('cart.quantity.update',$cart->id) }}" method="POST">
                                 <input name="cart_id" type="hidden" value="{{ $cart->id }}">
                                 @csrf
                                 <input value="{{ $cart->quantity }}" type="number" name="quantity" style="width: 20%; height: 30px; margin-right: 10px;">
@@ -108,23 +108,18 @@
                     <tr>
                         <td>
                             <div class="form-group">
-
-
-
                                 <label class="info-title control-label">Country <span>*</span></label>
                                 <select class="form-control unicase-form-control selectpicker search">
-
                                     <option>--Select options--</option>
-                                    @foreach ($country as  $countries)
+                                    {{-- @foreach ($country as  $countries)
                                     <option value="{{ $countries->id }}">{{ $countries->name }}</option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="info-title control-label">State/Province <span>*</span></label>
                                 <select class="form-control unicase-form-control selectpicker city_search">
                                     <option>--Select options--</option>
-
                                 </select>
                             </div>
                             <div class="form-group">
@@ -219,31 +214,3 @@
 
 @endsection
 
-@section('frontend_script')
-    <script>
-        $(document).ready(function() {
-    $('.search').select2();
-    $('.city_search').select2();
-
-    $('.search').change(function(){
-        var country_id = $(this).val();
-        $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-    $.ajax({
-        type:'POST',
-        url: '/city/not/found',
-        data:{country_id:country_id},
-        success:function(data){
-            $('.city_search').html(data);
-        }
-    });
-    });
-});
-
-
-    </script>
-@endsection

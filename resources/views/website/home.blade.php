@@ -932,7 +932,7 @@
                             <div class="products">
                             <div class="product">
                             <div class="product-image">
-                                <div class="image"> <a href="detail.html"><img  src="{{asset('uploads/product/'.$product->product_image)}}" alt=""></a> </div>
+                                <div class="image"> <a href="detail.html"><img src="{{asset('uploads/product/'.$product->product_image)}}" alt=""></a> </div>
                                 <!-- /.image -->
                                 @if ($product->product_feature == 1)
                                 <div class="tag hot"><span>hot</span></div>

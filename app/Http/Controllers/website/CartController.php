@@ -5,38 +5,45 @@ namespace App\Http\Controllers\website;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Coupon;
-use Darryldecode\Cart\CartCondition;
 use Illuminate\Http\Request;
-// use Darryldecode\Cart\Cart;
-use App\Models\Division;
-use App\Models\District;
+use Darryldecode\Cart\CartCondition;
+// use Gloudemans\Shoppingcart\Facades\Cart;
 use Cart;
 use App\Models\City;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
-use function Sodium\Compare;
 
 class CartController extends Controller
 {
     public function index(){
         $allcart = Cart::getContent();
-        $country = Division::select('id','name')->get();
-        $city = District::select('id','name')->get();
-        return view('website.shopping_cart', compact('allcart', 'country', 'city'));
+        return view('website.shopping_cart', compact('allcart'));
     }
 
 
     public function store($slug){
         $product = Product::where('product_status', 1)->where('product_slug', $slug)->firstOrFail();
-        Cart::add([
-            'id' => $product->product_id,
+        $rowId = uniqid();
+
+        Cart::add(array(
+            'id' => $rowId,
             'name' => $product->product_name,
             'price' => $product->product_discount_price,
             'quantity' => 1,
             'attributes' => [
-                'product_image' => $product->product_image
-            ]
-        ]);
+                        'product_image' => $product->product_image
+                    ]
+        ));
+
+        // Cart::add([
+        //     'id' => $product->product_id,
+        //     'name' => $product->product_name,
+        //     'price' => $product->product_discount_price,
+        //     'quantity' => 1,
+        //     'attributes' => [
+        //         'product_image' => $product->product_image
+        //     ]
+        // ]);
         return redirect()->back();
     }
 
@@ -81,20 +88,19 @@ class CartController extends Controller
     }
 
 
-    public function city_list(Request $request){
-        $city_search = "";
-        foreach(City::where('country_id',$request->country_id)->select('id','name')->get() as $city){
-        $city_search = $city_search."<option value='".$city->id."'>$city->name</option>";
-        }
-        echo $city_search;
-    }
-
-    public function quantityUpdate(Request $request)
+    public function quantityUpdate(Request $request, $rowId)
     {
-        Cart::add($request->cart_id, array(
-            'relative' => false,
-            'quantity' => $request->quantity,
+        // return $request->all();
+
+        $quantity = $request->quantity;
+        Cart::update($rowId, array(
+            'quantity' => array(
+                'relative' => false,
+                'value' => $quantity
+            ),
         ));
+        return redirect()->back()->with('success', 'Quantity Update successfully.');
+
         return redirect()->back();
     }
 
