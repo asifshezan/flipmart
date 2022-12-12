@@ -109,11 +109,11 @@
                         <td>
                             <div class="form-group">
                                 <label class="info-title control-label">Country <span>*</span></label>
-                                <select class="form-control unicase-form-control selectpicker search">
-                                    <option>--Select options--</option>
-                                    {{-- @foreach ($country as  $countries)
-                                    <option value="{{ $countries->id }}">{{ $countries->name }}</option>
-                                    @endforeach --}}
+                                <select name="country" id="country" class="form-control unicase-form-control selectpicker search">
+                                    <option>--Select Country--</option>
+                                    @foreach (App\Models\Country::orderBy('name')->get() as $key => $value)
+                                    <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
