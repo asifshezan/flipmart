@@ -123,6 +123,12 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label class="info-title control-label">City<span>*</span></label>
+                                <select class="form-control unicase-form-control selectpicker city_search">
+                                    <option>--Select options--</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="info-title control-label">Zip/Postal Code</label>
                                 <input type="text" class="form-control unicase-form-control text-input" placeholder="">
                             </div>
