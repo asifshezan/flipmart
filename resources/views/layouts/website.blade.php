@@ -541,10 +541,49 @@
 <script type="text/javascript" src="{{asset('contents/website')}}/js/lightbox.min.js"></script>
 <script src="{{asset('contents/website')}}/js/bootstrap-select.min.js"></script>
 <script src="{{asset('contents/website')}}/js/wow.min.js"></script>
+<script src="{{asset('contents/website')}}/js/jquery.min.js"></script>
 @yield('frontend_script')
 <script src="{{asset('contents/website')}}/js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+    $('#country').on('change', function() {
+            get_state_by_country();
+        });
+            function get_state_by_country(){
+                var country_id = $('#country').val();
+                $.post('{{route('getStates')}}',{_token:'{{ csrf_token() }}', country_id:country_id}, function(data){
+                    $('#state').html(null);
+                    $('#state').append($('<option value="">Select State</option>', {
+                    }));
+                    for (var i = 0; i < data.length; i++) {
+                        $('#state').append($('<option>', {
+                            value: data[i].id,
+                            text: data[i].name
+                        }));
+                    }
+            });
+        }
 
+</script>
+<script type="text/javascript">
+    $('#state').on('change', function() {
+            get_state_by_state();
+        });
+            function get_state_by_state(){
+                var state_id = $('#state').val();
+                $.post('{{route('getCities')}}',{_token:'{{ csrf_token() }}', state_id:state_id}, function(data){
+                    $('#city').html(null);
+                    $('#city').append($('<option value="">Select City</option>', {
+                    }));
+                    for (var i = 0; i < data.length; i++) {
+                        $('#city').append($('<option>', {
+                            value: data[i].id,
+                            text: data[i].name
+                        }));
+                    }
+            });
+        }
+ </script>
 
 </body>
 
