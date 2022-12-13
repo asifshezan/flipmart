@@ -82,4 +82,10 @@ class CityController extends Controller
     {
         //
     }
+
+    public function getCities(Request $request)
+    {
+        $cities = City::whereStateId($request->state_id)->orderBy('name')->get();
+        return $cities;
+    }
 }

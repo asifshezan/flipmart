@@ -525,9 +525,6 @@
 </footer>
 <!-- ============================================================= FOOTER : END============================================================= -->
 
-<!-- For demo purposes – can be removed on production -->
-
-<!-- For demo purposes – can be removed on production : End -->
 
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
 <script src="{{asset('contents/website')}}/js/jquery-1.11.1.min.js"></script>
@@ -541,10 +538,12 @@
 <script type="text/javascript" src="{{asset('contents/website')}}/js/lightbox.min.js"></script>
 <script src="{{asset('contents/website')}}/js/bootstrap-select.min.js"></script>
 <script src="{{asset('contents/website')}}/js/wow.min.js"></script>
-<script src="{{asset('contents/website')}}/js/jquery.min.js"></script>
+{{-- <script src="{{asset('contents/website')}}/js/jquery.min.js"></script> --}}
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> --}}
 @yield('frontend_script')
 <script src="{{asset('contents/website')}}/js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script type="text/javascript">
     $('#country').on('change', function() {
             get_state_by_country();
@@ -563,7 +562,6 @@
                     }
             });
         }
-
 </script>
 <script type="text/javascript">
     $('#state').on('change', function() {
@@ -583,9 +581,8 @@
                     }
             });
         }
- </script>
+</script>
 
 </body>
 
-<!-- Mirrored from www.themesground.com/flipmart-demo/HTML/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 May 2022 09:59:52 GMT -->
 </html>

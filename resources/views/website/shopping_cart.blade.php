@@ -118,13 +118,13 @@
                             </div>
                             <div class="form-group">
                                 <label class="info-title control-label">State/Province <span>*</span></label>
-                                <select class="form-control unicase-form-control selectpicker city_search">
+                                <select name="state" id="state" class="form-control">
                                     <option>--Select options--</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="info-title control-label">City<span>*</span></label>
-                                <select class="form-control unicase-form-control selectpicker city_search">
+                                <select name="city" id="city" class="form-control">
                                     <option>--Select options--</option>
                                 </select>
                             </div>
@@ -218,5 +218,7 @@
 </div>
 </div>
 
+
 @endsection
+
 
