@@ -40,7 +40,7 @@ Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function(){
 });
 
 Route::post('getStates', [StateController::class, 'getStates'])->name('getStates');
-Route::post('getCities', [StateController::class, 'getCities'])->name('getCities');
+Route::post('getCities', [CityController::class, 'getCities'])->name('getCities');
 
 
 
