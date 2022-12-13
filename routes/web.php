@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\StateController;
 use Darryldecode\Cart\CartCondition;
 
 Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
@@ -38,7 +39,8 @@ Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function(){
 
 });
 
-
+Route::post('getStates', [StateController::class, 'getStates'])->name('getStates');
+Route::post('getCities', [StateController::class, 'getCities'])->name('getCities');
 
 
 
