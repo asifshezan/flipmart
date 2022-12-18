@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\website\WebsiteController;
 use App\Http\Controllers\website\WishlistController;
 use App\Http\Controllers\website\CartController;
-
+use App\Http\Controllers\website\CheckoutController;
 
 
 use App\Http\Controllers\Admin\AdminController;
@@ -19,9 +19,11 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\CityController;
-use Darryldecode\Cart\CartCondition;
+
 
 Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
+
+Route::get('/', [CheckoutController::class, 'checkout'])->name('website.checkout');
 
 Route::group(['prefix' => 'wishlist', 'middleware' => 'auth'], function(){
     Route::get('/', [WishlistController::class, 'index'])->name('wishlist.index');
