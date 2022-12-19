@@ -46,7 +46,7 @@
 
 
     <div class="row">
-        <form method="post ">
+        <form method="post">
             <div class="col-7 col">
                 <h3 class="topborder card-header" style="padding-bottom: 20px;"><span>Billing Details</span></h3>
 
@@ -65,29 +65,37 @@
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required>
 
+                <label for="tel">Phone</label>
+                    <input type="text" name="tel" id="tel" required>
+
                 <div class="width50 padright">
                     <label for="country">Country</label>
                 <select name="country" id="country" required>
                     <option value="">Please select a country</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Not Canada">Not Canada</option>
+                    @foreach (App\Models\Country::orderBy('name')->get() as $key => $value)
+                    <option value="{{ $value->id }}">{{ $value->name }}</option>
+                    @endforeach
                 </select>
                     </div>
 
                     <div class="width50">
-                        <label for="city">Town / City</label>
-                        <input type="text" name="city" id="city" required>
+                        <label for="city">State</label>
+                        <select name="state" id="state" required>
+                            <option>--Select options--</option>
+                        </select>
                     </div>
 
 
                 <div class="width50 padright">
-                <label for="postcode">Postcode</label>
-                    <input type="text" name="postcode" id="postcode" placeholder="Postcode / Zip" required>
+                    <label for="city">Town / City</label>
+                        <select name="city" id="city" required>
+                            <option>--Select options--</option>
+                        </select>
                 </div>
 
                 <div class="width50">
-                    <label for="tel">Phone</label>
-                    <input type="text" name="tel" id="tel" required>
+                    <label for="postcode">Postcode</label>
+                    <input type="text" name="postcode" id="postcode" placeholder="Postcode / Zip" required>
                 </div>
                 <input type="checkbox" value="2" name="checkbox"><p>Create an account?</p>
                 <h3 class="topborder"><span>Shipping Address</span></h3>
@@ -102,25 +110,36 @@
                     <h4 class="inline alignright">Total</h4>
                 </div>
                 <div>
-                    <p class="prod-description inline">Nice Dress<div class="qty inline"><span class="smalltxt">x</span> 1</div>
+                    <p class="prod-description inline">
+                        @php
+                        $allcart = Cart::getContent();
+                    @endphp
+                    @forelse ($allcart as $alcart)
+                    <a class="entry-thumbnail" href="#">
+                        <img width="50px;" src="{{ asset('uploads/product/'.$alcart->attributes->product_image)}}" alt="">
+                    </a>
+                    @empty
+
+                    @endforelse
+
+                        <div class="qty inline alignright center" ><span class="smalltxt">x</span> {{ $alcart->quantity }}</div>
                     </p>
                 </div>
-                <div><h5>Cart Subtotal</h5></div>
+                <p>Cart Subtotal</p><div class="inline alignright center"></div>
+
                 <div>
-                    <h5 class="inline difwidth">Shipping and Handling</h5>
-                    <p class="inline alignright center">Free Shipping</p>
+                    <h5 class="inline difwidth">Cart Subtotal</h5>
+                    <p class="inline alignright center">{{ $alcart->price }}</p>
                 </div>
                 <div><h5>Order Total</h5></div>
 
                 <div>
                     <h3 class="topborder"><span>Payment Method</span></h3>
                     <input type="radio" value="banktransfer" name="payment" checked><p>Direct Bank Transfer</p>
-                    <p class="padleft">
-                        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account.
-                    </p>
                 </div>
-
                 <div><input type="radio" value="cheque" name="payment"><p>Cheque Payment</p></div>
+                <div><input type="radio" value="cheque" name="payment"><p>bkash</p></div>
+                <div><input type="radio" value="cheque" name="payment"><p>Cash On Delivery</p></div>
                 <input type="submit" name="submit" value="Place Order" class="redbutton">
             </div>
         </form>
