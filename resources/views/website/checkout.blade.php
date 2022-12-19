@@ -43,34 +43,13 @@
             <p><a href="#">Lost your password?</a></p>
         </div>
     </div>
+
+
     <div class="row">
-        <div class="col-12 col">
-            <div class="info-bar">
-                <p>
-                    <i class="fa fa-info"></i>
-                    Have a coupon? <a href="#">Click here to enter your code</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6 col coupon">
-            <form method="get">
-                <input type="text" name="coupon" id="coupon" placeholder="Coupon code">
-                <input type="submit" name="submit" value="Apply Coupon">
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <form method="get">
+        <form method="post ">
             <div class="col-7 col">
-                <h3 class="topborder"><span>Billing Details</span></h3>
-                <label for="country">Country</label>
-                <select name="country" id="country" required>
-                    <option value="">Please select a country</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Not Canada">Not Canada</option>
-                </select>
+                <h3 class="topborder card-header" style="padding-bottom: 20px;"><span>Billing Details</span></h3>
+
                 <div class="width50 padright">
                     <label for="fname">First Name</label>
                     <input type="text" name="fname" id="fname" required>
@@ -79,38 +58,33 @@
                     <label for="lname">Last Name</label>
                     <input type="text" name="lname" id="lname" required>
                 </div>
-                <label for="company">Company Name</label>
-                <input type="text" name="company" id="company" required>
+
                 <label for="address">Address</label>
                 <input type="text" name="address" id="address" required>
-                <input type="text" name="address" id="address2" placeholder="Optional">
-                <label for="city">Town / City</label>
-                <input type="text" name="city" id="city" required>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+
                 <div class="width50 padright">
-                    <label for="province">Province</label>
-                    <select name="province" id="province" required>
-                        <option value="">Please select a province</option>
-                        <option value="ab">Alberta</option>
-                        <option value="bc">British Columbia</option>
-                        <option value="mb">Manitoba</option>
-                        <option value="nb">New Brunswick</option>
-                        <option value="nl">Newfoundland and Labrador</option>
-                        <option value="ns">Nova Socia</option>
-                        <option value="on">Ontario</option>
-                        <option value="pe">Prince Edward Island</option>
-                        <option value="qc">Quebec</option>
-                        <option value="sk">Saskatchewan</option>
-                        <option value="not-canada">Not Canada</option>
-                    </select>
-                </div>
-                <div class="width50">
-                    <label for="postcode">Postcode</label>
+                    <label for="country">Country</label>
+                <select name="country" id="country" required>
+                    <option value="">Please select a country</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Not Canada">Not Canada</option>
+                </select>
+                    </div>
+
+                    <div class="width50">
+                        <label for="city">Town / City</label>
+                        <input type="text" name="city" id="city" required>
+                    </div>
+
+
+                <div class="width50 padright">
+                <label for="postcode">Postcode</label>
                     <input type="text" name="postcode" id="postcode" placeholder="Postcode / Zip" required>
                 </div>
-                <div class="width50 padright">
-                    <label for="email">Email Address</label>
-                    <input type="text" name="email" id="email" required>
-                </div>
+
                 <div class="width50">
                     <label for="tel">Phone</label>
                     <input type="text" name="tel" id="tel" required>
@@ -147,14 +121,6 @@
                 </div>
 
                 <div><input type="radio" value="cheque" name="payment"><p>Cheque Payment</p></div>
-                <div>
-                    <input type="radio" value="paypal" name="payment"><p>Paypal</p>
-                    <fieldset class="paymenttypes">
-                        <legend><img src="images/pay-pal.jpg" alt="PayPal Logo" class="paypal"></legend>
-                        <img src="images/cards.jpg" alt="Visa, Mastercard, Maestro and Amex Credit Cards" class="cards">
-                    </fieldset>
-                    <a href="#" class="padleft">What is Paypal?</a>
-                </div>
                 <input type="submit" name="submit" value="Place Order" class="redbutton">
             </div>
         </form>

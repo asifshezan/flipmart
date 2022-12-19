@@ -23,7 +23,11 @@ use App\Http\Controllers\CityController;
 
 Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 
-Route::get('/', [CheckoutController::class, 'checkout'])->name('website.checkout');
+
+
+Route::group(['prefix' => 'checkout', 'middleware' => 'auth'], function(){
+    Route::get('/', [CheckoutController::class, 'checkout'])->name('website.checkout');
+});
 
 Route::group(['prefix' => 'wishlist', 'middleware' => 'auth'], function(){
     Route::get('/', [WishlistController::class, 'index'])->name('wishlist.index');
